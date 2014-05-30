@@ -8,12 +8,14 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='santaclara_editor',
-    version='0.2',
+    version='0.2.1',
     packages=['santaclara_editor'],
     requires=['santaclara_third'],
     package_data={'santaclara_editor': [
             'static/css/*',
             'static/js/*',
+            'templatetags/*',
+            'santaclara_lang/*',
             ]},
     include_package_data=True,
     license='GNU General Public License v3 or later (GPLv3+)',  # example license
