@@ -78,11 +78,10 @@ where _arg0_ is a default argument, often an argument named _tag_name_.
 You can write bracket and slash using a doubled version:
 
 | sequence | will become | render |
-|--|--|--|
-| // | / |
-| [[ | [ |
-| ]] | ] |
-
+|:-------:|:-------:|:------:|
+|\\\\|\&#47;|\|
+|[[|\&#91;|[|
+|]]|\&#93;|]|
 
 ###Extending
 
