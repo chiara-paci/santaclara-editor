@@ -1,0 +1,6 @@
+include LICENSE
+include README.rst
+recursive-include santaclara/templatetags *
+recursive-include santaclara/static *
+recursive-include santaclara/santaclara_lang *
+recursive-include docs *
