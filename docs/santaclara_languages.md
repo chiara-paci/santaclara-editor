@@ -102,8 +102,8 @@ render simpler text, like comments, notes, forum posts, ecc.
 
 You can [extend](extend_language.md) both list.
 
-##Tag Reference
 
+##Tag Reference
 
 | tag name | simple | extended | has argument | description |
 |----|:----:|:----:|:----:|----|
@@ -114,6 +114,7 @@ You can [extend](extend_language.md) both list.
 | [s][/s] |X|X||linethrough|
 | [o][/o] |X|X||overline|
 | [sc][/sc] |X|X||small caps|
+| [color][/color] |X|X|X|color|
 | [center][/center] |X|X||align center|
 | [left][/left] |X|X||align left|
 | [right][/right] |X|X||align right|
@@ -129,13 +130,21 @@ You can [extend](extend_language.md) both list.
 | [vspace/] ||X|X|vertical space|
 | [ref][/ref] ||X|X|internal reference|
 | [url][/url] ||X|X|url|
-| [color][/color] ||X|X|color|
 | [li][/li] ||X||list item|
 | [dt][/dt] ||X||dictionary list item|
 | [dd][/dd] ||X||dictionary list item|
 | [item][/item] ||X||punctuated list|
 | [enum][/enum] ||X||numbered list|
 | [dict][/dict] ||X||dictionary list|
+| [h_num_][/h_num_] ||X||heading of level _num_|
+
+###color
+
+```
+[color fore=<foreground_color> back=<background_color>]<text>[/color]
+```
+
+Arguments are not mandatory.
 
 ###quote
 
@@ -148,11 +157,39 @@ Arguments are not mandatory.
 
 ###cite
 
+```
+[cite ref=<internal_reference> page=<page_number(s)> url=<url> label=<label>]<text>[/cite]
+```
+
 ###hspace
+
+```
+[hspace w=<len>/]
+```
+
+Arguments are not mandatory (default: _len_=1em).
 
 ###vspace
 
+```
+[vspace h=<len>/]
+```
+
+Arguments are not mandatory (default: _len_=1em).
+
 ###ref
 
+```
+[ref ref=<internal_reference>]<text>[/ref]
+[ref=<internal_reference>]<text>[/ref]
+```
+
+Without "#".
+
 ###url
+
+```
+[url url=<address>]<text>[/url]
+[url=<address>]<text>[/url]
+```
 
