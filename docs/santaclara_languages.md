@@ -40,8 +40,8 @@ Surrounding tags are like:
 ``` 
 [<tag_name> <args>]<content>[/<tag_name>] 
 ```
-i.e, two bracket sequence ending with the same <tag_name> (the slash
-in second tag is mandatory).
+i.e, two bracket sequence with the same _tag_name_ (the slash
+in second tag is mandatory) and surrounding _content_.
 
 Surrounding tags transform _content_ in html and can be nested. For example:
 ```
@@ -79,9 +79,9 @@ You can write bracket and slash using a doubled version:
 
 | sequence | will become | render |
 |--|--|--|
-| // | &#47; | / |
-| [[ | &#91; | [ |
-| ]] | &#93; | ] |
+| // | / |
+| [[ | [ |
+| ]] | ] |
 
 
 ###Extending
