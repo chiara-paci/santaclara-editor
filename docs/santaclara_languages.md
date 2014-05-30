@@ -105,7 +105,7 @@ You can [extend](extend_language.md) both list.
 
 ##Tag Reference
 
-| tag name | simple | extended | has argument | description |
+| tag name | simple | full | has argument | description |
 |----|:----:|:----:|:----:|----|
 | [b][/b] |X|X||bold|
 | [i][/i] |X|X||italics|
