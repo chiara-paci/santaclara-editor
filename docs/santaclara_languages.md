@@ -105,34 +105,54 @@ You can [extend](extend_language.md) both list.
 ##Tag Reference
 
 
-| tag name | simple | extended | has argument | isolated | description |
+| tag name | simple | extended | has argument | description |
 |----|:----:|:----:|:----:|----|
-| b |X|X|||bold|
-| i |X|X|||italics|
-| t |X|X|||terminal type|
-| u |X|X|||underline|
-| s |X|X|||linethrough|
-| o |X|X|||overline|
-| sc |X|X|||small caps|
-| center |X|X|||align center|
-| left |X|X|||align left|
-| right |X|X|||align right|
-| justify |X|X|||justify|
-| quote |X|X|X||quote|
-| cite |X|X|X||citation|
-| code |X|X|X||preformatted with code look|
-| term |X|X|X||preformatted with terminal look|
-| hr||X||X|horizontal line|
-| br||X||X|line break|
-| space||X||X|space|
-| hspace||X|X|X|horizontal space|
-| vspace||X|X|X|vertical space|
-| ref||X|X|both|internal reference|
-| url||X|X|both|url|
-| color||X|X||color|
-| li||X|||list item|
-| dt||X|||dictionary list item|
-| dd||X|||dictionary list item|
-| item||X|||punctuated list|
-| enum||X|||numbered list|
-| dict||X|||dictionary list|
+| [b][/b] |X|X||bold|
+| [i][/i] |X|X||italics|
+| [t][/t] |X|X||terminal type|
+| [u][/u] |X|X||underline|
+| [s][/s] |X|X||linethrough|
+| [o][/o] |X|X||overline|
+| [sc][/sc] |X|X||small caps|
+| [center][/center] |X|X||align center|
+| [left][/left] |X|X||align left|
+| [right][/right] |X|X||align right|
+| [justify][/justify] |X|X||justify|
+| [quote][/quote] |X|X|X|quote|
+| [cite][/cite] |X|X|X|citation|
+| [code][/code] |X|X||preformatted with code look|
+| [term][/term] |X|X||preformatted with terminal look|
+| [hr/] ||X||horizontal line|
+| [br/] ||X||line break|
+| [space/] ||X||space|
+| [hspace/] ||X|X|horizontal space|
+| [vspace/] ||X|X|vertical space|
+| [ref][/ref] ||X|X|internal reference|
+| [url][/url] ||X|X|url|
+| [color][/color] ||X|X|color|
+| [li][/li] ||X||list item|
+| [dt][/dt] ||X||dictionary list item|
+| [dd][/dd] ||X||dictionary list item|
+| [item][/item] ||X||punctuated list|
+| [enum][/enum] ||X||numbered list|
+| [dict][/dict] ||X||dictionary list|
+
+###quote
+
+```
+[quote name=<person> name_url=<person_url> ts=<timestamp> url=<text_url>]<text>[/quote]
+[quote=<person> name_url=<person_url> ts=<timestamp> url=<text_url>]<text>[/quote]
+```
+
+Arguments are not mandatory.
+
+###cite
+
+###hspace
+
+###vspace
+
+###ref
+
+###url
+
