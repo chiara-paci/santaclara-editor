@@ -136,7 +136,7 @@ You can [extend](extend_language.md) both list.
 | [item][/item] ||X||punctuated list|
 | [enum][/enum] ||X||numbered list|
 | [dict][/dict] ||X||dictionary list|
-| [h_num_][/h_num_] ||X||heading of level _num_|
+| [h _num_][/h _num_] ||X||heading of level _num_|
 
 ###color
 
