@@ -87,5 +87,52 @@ You can write bracket and slash using a doubled version:
 
 You can define your own tags. See [How To Extend Language](extend_language.md).
 
+##Simple and full version
+
+You can use two version of the Santa Clara Language, _simple_ and
+_full_ (see [Template Filters](santa_clara_editor.md)). The _simple_
+version use a subset of the tags.
+
+The _full_ version is intended to render entire page, with both text
+formatting (italics, bold, quote, ecc.) and layout tags (adding
+vertical space, list, heading, ecc.).
+
+The _simple_ version has just text formatting tags and is intended to
+render simpler text, like comments, notes, forum posts, ecc.
+
+You can [extend](extend_language.md) both list.
+
 ##Tag Reference
 
+
+| tag name | simple | extended | has argument | isolated | description |
+|----|:----:|:----:|:----:|----|
+| b |X|X|||bold|
+| i |X|X|||italics|
+| t |X|X|||terminal type|
+| u |X|X|||underline|
+| s |X|X|||linethrough|
+| o |X|X|||overline|
+| sc |X|X|||small caps|
+| center |X|X|||align center|
+| left |X|X|||align left|
+| right |X|X|||align right|
+| justify |X|X|||justify|
+| quote |X|X|X||quote|
+| cite |X|X|X||citation|
+| code |X|X|X||preformatted with code look|
+| term |X|X|X||preformatted with terminal look|
+| hr||X||X|horizontal line|
+| br||X||X|line break|
+| space||X||X|space|
+| hspace||X|X|X|horizontal space|
+| vspace||X|X|X|vertical space|
+| ref||X|X|both|internal reference|
+| url||X|X|both|url|
+| color||X|X||color|
+| li||X|||list item|
+| dt||X|||dictionary list item|
+| dd||X|||dictionary list item|
+| item||X|||punctuated list|
+| enum||X|||numbered list|
+| dict||X|||dictionary list|
