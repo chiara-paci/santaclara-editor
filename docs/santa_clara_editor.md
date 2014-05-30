@@ -8,14 +8,14 @@ You can use filters defined by santaclara-editor with:
 ```
 
 Santa Clara Editor filters format text written in [Santa Clara
-Language](docs/santaclara_languages.md), a bb-code style language.
+Language](santaclara_languages.md), a bb-code style language.
 
 ##Filters
 
 ###santa_clara_lang
 
 Format _text_ using full version of [Santa Clara
-Language](docs/santaclara_languages.md).
+Language](santaclara_languages.md).
 
 ```
 {{ <text>|santa_clara_lang }}
@@ -24,7 +24,7 @@ Language](docs/santaclara_languages.md).
 ###santa_clara_simple
 
 Format _text_ using reduced version of [Santa Clara
-Language](docs/santaclara_languages.md).
+Language](santaclara_languages.md).
 
 ```
 {{ <text>|santa_clara_simple }}
@@ -33,7 +33,7 @@ Language](docs/santaclara_languages.md).
 ###santa_clara_json
 
 Format _text_ using full version of [Santa Clara
-Language](docs/santaclara_languages.md) and clean it to be inserted in
+Language](santaclara_languages.md) and clean it to be inserted in
 a json response.
 
 ```
