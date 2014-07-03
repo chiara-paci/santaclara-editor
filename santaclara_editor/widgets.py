@@ -53,8 +53,9 @@ class SantaClaraSimpleWidget(forms.Textarea):
                     'css/santa-clara-tags.css',)
             }
         js = ('js/jquery.js',
-              'localjs/jquery-ui-1.10.3.custom.min.js',
-              'localjs/santa-clara-widget.js')
+              'js/jquery-ui-1.10.4.custom.min.js',
+              'js/jquery-santaclara.js',
+              'js/santa-clara-widget.js')
 
     def render(self, name, value, attrs=None):
         ### Aggiungere tooltip
