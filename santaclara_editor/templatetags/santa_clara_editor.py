@@ -51,6 +51,10 @@ register.filter("santa_clara_simple",santa_clara_simple)
 santa_clara_simple.needs_autoescape = True
 
 def santa_clara_json(value,ind=0,autoescape=None): 
+    if autoescape:
+        esc = conditional_escape
+    else:
+        esc = lambda x: x
     txt=language_register.extended.filter(value,ind,lambda x: x)
     txt=esc(txt).replace('"',"'")
     txt=txt.replace('\n',"<br/>")
