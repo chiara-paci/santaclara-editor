@@ -50,6 +50,7 @@ class SantaClaraSimpleWidget(forms.Textarea):
     class Media:
         css = {
             "all": ('css/font-awesome.min.css',
+                    'css/jquery-ui-1.10.4.custom.min.css',
                     'css/santa-clara-tags.css',)
             }
         js = ('js/jquery.js',
@@ -85,12 +86,13 @@ class SantaClaraJQueryUIWidget(forms.Textarea):
     class Media:
         css = {
             "all": ('css/font-awesome.min.css',
-                    'css/jquery-ui-1.10.3.custom.min.css',
+                    'css/jquery-ui-1.10.4.custom.min.css',
                     'css/santa-clara-tags.css',)
             }
         js = ('js/jquery.js',
-              'localjs/jquery-ui-1.10.3.custom.min.js',
-              'js/jquery-santaclara.js')
+              'js/jquery-ui-1.10.4.custom.min.js',
+              'js/jquery-santaclara.js',
+              'js/santa-clara-widget.js')
 
     def render(self, name, value, attrs=None):
         ta_id=attrs["id"]
