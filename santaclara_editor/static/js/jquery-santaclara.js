@@ -1,6 +1,23 @@
 (function($) {
 
-    /** vedi gianozia **/
+    /****
+	 <form ...>
+	 ...
+	 <div id="{{div_id}}">{{text}}</div>
+	 ...
+	 </form>
+         <script type="text/javascript">
+             $("#{{div_id}}").santa_clara_editor({
+                 textarea_id: "{{ta_id}}",
+                 textarea_name: {{form_field_name}}"
+             });
+         </script>'
+
+	 Il form al momento del submit si ritroverà con un campo del tipo:
+
+	 <textarea name="{{form_field_name}}" id="{{ta_id}}">{{text}}</textarea>
+
+     ****/
 
     $.widget("sc.santa_clara_editor",{
 	options: {
