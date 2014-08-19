@@ -89,8 +89,8 @@ class SantaClaraJQueryUIWidget(forms.Textarea):
                     'css/jquery-ui-1.10.4.custom.min.css',
                     'css/santa-clara-tags.css',)
             }
-        js = ('js/jquery.js',
-              'js/jquery-ui-1.10.4.custom.min.js',
+        js = ('js/jquery-1.11.0.js',
+              'js/jquery-ui-1.11.0.custom.min.js',
               'js/jquery-santaclara.js',
               'js/santa-clara-widget.js')
 
