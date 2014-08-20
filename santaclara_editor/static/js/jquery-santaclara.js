@@ -400,7 +400,7 @@
 		return ret;
 	    }
 
-	    if ( $(savedRange.startContainer)!=this.textarea_id ) {
+	    if ( $(savedRange.startContainer).attr("id")!=this.textarea_id ) {
 		ret = { 
 		    pos: savedRange.startOffset,
 		    container: $(savedRange.startContainer),
