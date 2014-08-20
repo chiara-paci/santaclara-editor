@@ -660,7 +660,8 @@
 	    
 	    console.log("USH0",cursor);
 
-	    if (cursor.pos==-1) {
+	    if ($(cursor.container).attr("id")==this.textarea_id) {
+		console.log("USH2");
 		this.set_text("\n");
 		return;
 	    }
