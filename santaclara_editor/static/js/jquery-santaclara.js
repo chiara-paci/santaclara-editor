@@ -530,7 +530,7 @@
 		obj=contents[contents.length-1];
 		container=$(obj);
 		text=$(obj).text();
-		pos=new_prev_text.length;
+		pos=new_prev_text.length-1;
 		return ({container:container,pos:pos});
 	    }
 
