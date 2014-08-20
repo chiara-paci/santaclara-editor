@@ -92,6 +92,7 @@ class SantaClaraJQueryUIWidget(forms.Textarea):
         js = ('js/jquery-1.11.0.js',
               'js/jquery-ui-1.11.0.custom.min.js',
               'js/jquery-santaclara.js',
+              'santaclara_editor/js/santa-clara-editor.js',
               'js/santa-clara-widget.js')
 
     def render(self, name, value, attrs=None):
@@ -101,40 +102,15 @@ class SantaClaraJQueryUIWidget(forms.Textarea):
 
         H=u'<div id="santa_clara_'+ta_id+'"'
         if self.attrs["style"]:
-            H+=' class="'+self.attrs["style"]+'"'
+            H+=' class="santa-clara-editor '+self.attrs["style"]+'"'
+        else:
+            H+=' class="santa-clara-editor"'
         H+=' data-ta_name="'+name+'"'
         H+=' data-ta_id="'+ta_id+'"'
         H+=u'>'
         H+=unicode(value)
         H+='</div>'
         H+="\n"
-        H+='<script type="text/javascript">\n'
-
-
-        H+='var append_interceptor = function(obj,method,arguments){\n';
-        H+='    console.log(method+" '+ta_id+'");\n'
-        H+='    console.log(obj);\n'
-        H+='    console.log(arguments);\n'
-        H+='};\n'
-
-
-
-        #H+='$("#santa_clara_'+ta_id+'").closest("form").hook("append",append_interceptor);\n'
-        #H+='$("#santa_clara_'+ta_id+'").closest("form").hook("insertBefore",append_interceptor);\n'
-        H+='var parent_id=$("#santa_clara_'+ta_id+'").closest("fieldset").parent().attr("id");\n'
-        H+='console.log($("#"+parent_id));\n'
-        H+='$("#"+parent_id).parent().parent().hook("append",append_interceptor);\n'
-        H+='$("#"+parent_id).parent().parent().hook("after",append_interceptor);\n'
-        H+='$("#"+parent_id).parent().hook("append",append_interceptor);\n'
-        H+='$("#"+parent_id).parent().hook("after",append_interceptor);\n'
-        H+='$("#"+parent_id).hook("after",append_interceptor);\n'
-        H+='$("#"+parent_id).hook("append",append_interceptor);\n'
-
-        H+='$("#santa_clara_'+ta_id+'").santa_clara_editor({'
-        H+='textarea_id: "'+ta_id+'",'
-        H+='textarea_name: "'+name+'"'
-        H+='});'
-        H+='</script>\n'
         
         return mark_safe(H)
     
