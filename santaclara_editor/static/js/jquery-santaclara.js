@@ -663,9 +663,10 @@
 	    console.log("USH0",cursor);
 	    
 	    if ($(cursor.container).attr("id")==this.textarea_id) {
-		console.log("USH2");
-		this.set_text("\n");
-		return;
+		if (!this.get_text().length){
+		    console.log("USH2");
+		    return;
+		}
 	    }
 	    var cfr_text=this._split_text_at_pos(cursor.container,cursor.pos);
 	    this.set_text(this.get_text());
