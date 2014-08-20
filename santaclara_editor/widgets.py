@@ -110,10 +110,9 @@ class SantaClaraJQueryUIWidget(forms.Textarea):
         H+="\n"
         H+='<script type="text/javascript">\n'
 
-        H+='$("#santa_clara_'+ta_id+'").parent().hook("append",function(obj,method,arguments){\n'
+        H+='$("#santa_clara_'+ta_id+'").closest("form").hook("append",function(obj,method,arguments){\n'
         H+='console.log("append '+ta_id+'");\n'
         H+='console.log(obj);\n'
-        H+='console.log(method);\n'
         H+='console.log(arguments);\n'
         H+=' });'
 
