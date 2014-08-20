@@ -110,7 +110,7 @@ class SantaClaraJQueryUIWidget(forms.Textarea):
         H+=unicode(value)
         H+='</div>\n'
         H+='<script type="text/javascript">\n'
-        H+='$("#santa_clara_'+ta_id+'").name="santa_clara_'+name+'";\n'
+        H+='$("#santa_clara_'+ta_id+'").prop("for","santa_clara_'+name+'");\n'
         H+='</script>'
         H+="\n"
         
