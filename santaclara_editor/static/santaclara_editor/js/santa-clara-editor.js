@@ -20,8 +20,8 @@ $(function(){
 		});
 		*/
 		$(this).find(".santa-clara-editor").each(function(){
-		    var ta_id=$(this).data("ta_id");
-		    var name=$(this).data("ta_name");
+		    var ta_id=$(this).data("ta_id").replace(/^santa_clara_/,"");
+		    var name=$(this).data("ta_name").replace(/^santa_clara_/,"");
 		    console.log($(this),ta_id,name);
 		    
 		    /*
