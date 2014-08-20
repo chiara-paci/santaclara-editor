@@ -10,20 +10,16 @@ $(function(){
 
     var mutationHandler = function (mutationRecords) {
 	mutationRecords.forEach ( function (mutation) {
-	    console.log(mutation);
-	    $(mutation.target).children().each(function(){
-		console.log($(this));
-	    });
-	    /*
 	    if (mutation.type!="childList") return;
 	    if (mutation.addedNodes.length==0) return;
 
 	    $(mutation.addedNodes).each(function(){
-		$(this).children().each(function(){
+		/*
+		$(this).find().each(function(){
 		    console.log($(this));
 		});
-		*
-		$(this).children(".santa-clara-editor").each(function(){
+		*/
+		$(this).find(".santa-clara-editor").each(function(){
 		    var ta_id=$(this).data("ta_id");
 		    var name=$(this).data("ta_name");
 		    console.log($(this),ta_id,name);
@@ -33,9 +29,9 @@ $(function(){
 		      textarea_id: ta_id,
 		      textarea_name: name
 		      });
-		    *
+		    */
 		});
-	    });*/
+	    });
 
 	});
     };
