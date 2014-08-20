@@ -119,10 +119,10 @@ class SantaClaraJQueryUIWidget(forms.Textarea):
 
 
 
-        H+='$("#santa_clara_'+ta_id+'").closest("form").hook("append",append_interceptor);\n'
-        H+='$("#santa_clara_'+ta_id+'").closest("form").hook("insertBefore",append_interceptor);\n'
+        #H+='$("#santa_clara_'+ta_id+'").closest("form").hook("append",append_interceptor);\n'
+        #H+='$("#santa_clara_'+ta_id+'").closest("form").hook("insertBefore",append_interceptor);\n'
         H+='console.log($("#santa_clara_'+ta_id+'").closest("fieldset").parent());\n'
-        H+='$("#santa_clara_'+ta_id+'").closest("fieldset").parent().hook("clone",append_interceptor);\n'
+        #H+='$("#santa_clara_'+ta_id+'").closest("fieldset").parent().hook("clone",append_interceptor);\n'
 
         H+='$("#santa_clara_'+ta_id+'").santa_clara_editor({'
         H+='textarea_id: "'+ta_id+'",'
