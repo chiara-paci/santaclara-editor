@@ -422,6 +422,8 @@
 		sel.collapse(container,pos);
 		return;
 	    }
+	    console.log(container,pos);
+
 	    switch (container.length) {
 	    case 1:
 		sel.collapse(container[0],pos);
