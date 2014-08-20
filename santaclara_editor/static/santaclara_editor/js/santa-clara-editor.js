@@ -5,33 +5,8 @@ $(function(){
 	console.log(arguments);
     };
 
-
-
     /* $("#santa_clara_'+ta_id+'").closest("form").hook("append",append_interceptor);\n'
        #$("#santa_clara_'+ta_id+'").closest("form").hook("insertBefore",append_interceptor);\n' */
-    
-    $(".santa-clara-editor").each(function(){
-	console.log($(this));
-	
-	var ta_id=$(this).data("ta_id");
-	var name=$(this).data("ta_name");
-	
-	$(this).santa_clara_editor({
-	    textarea_id: ta_id,
-	    textarea_name: name
-	});
-	
-    });
-
-    var targetNodes         = $(".santa-clara-editor");
-    var MutationObserver    = window.MutationObserver || window.WebKitMutationObserver;
-    var myObserver          = new MutationObserver (mutationHandler);
-    var obsConfig           = { childList: true, characterData: true, attributes: true, subtree: true };
-
-    //--- Add a target node to the observer. Can only add one node at a time.
-    targetNodes.each ( function () {
-	myObserver.observe (this, obsConfig);
-    } );
 
     function mutationHandler (mutationRecords) {
 	console.log("mutationHandler:");
@@ -48,6 +23,43 @@ $(function(){
             }
 	} );
     }
+
+    var MutationObserver    = window.MutationObserver || window.WebKitMutationObserver;
+    var myObserver          = new MutationObserver (mutationHandler);
+    var obsConfig           = { childList: true, characterData: true, attributes: true, subtree: true };
+
+    
+    $(".santa-clara-editor").each(function(){
+	console.log($(this));
+	
+	var ta_id=$(this).data("ta_id");
+	var name=$(this).data("ta_name");
+	
+	$(this).santa_clara_editor({
+	    textarea_id: ta_id,
+	    textarea_name: name
+	});
+
+	$(this).closest("fieldset").parent().parent().each( function () {
+	    myObserver.observe (this, obsConfig);
+	});
+
+	
+    });
+
+    /*
+    var targetNodes         = $(".santa-clara-editor");
+
+    var MutationObserver    = window.MutationObserver || window.WebKitMutationObserver;
+    var myObserver          = new MutationObserver (mutationHandler);
+    var obsConfig           = { childList: true, characterData: true, attributes: true, subtree: true };
+
+    //--- Add a target node to the observer. Can only add one node at a time.
+    targetNodes.each ( function () {
+	myObserver.observe (this, obsConfig);
+    } );
+    */
+
 
 });
 
