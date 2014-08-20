@@ -11,6 +11,9 @@ $(function(){
     var mutationHandler = function (mutationRecords) {
 	mutationRecords.forEach ( function (mutation) {
 	    console.log(mutation);
+	    $(mutation.target).children().each(function(){
+		console.log($(this));
+	    });
 	    /*
 	    if (mutation.type!="childList") return;
 	    if (mutation.addedNodes.length==0) return;
