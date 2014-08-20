@@ -105,7 +105,7 @@ class SantaClaraJQueryUIWidget(forms.Textarea):
             H+=' class="santa-clara-editor '+self.attrs["style"]+'"'
         else:
             H+=' class="santa-clara-editor"'
-        H+=' name=santa_clara_"'+name+'"'
+        H+=' name="santa_clara_'+name+'"'
         H+=u'>'
         H+=unicode(value)
         H+='</div>\n'
