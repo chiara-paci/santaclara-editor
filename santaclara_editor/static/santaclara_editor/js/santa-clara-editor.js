@@ -10,18 +10,20 @@ var append_interceptor = function(obj,method,arguments){
 /* $("#santa_clara_'+ta_id+'").closest("form").hook("append",append_interceptor);\n'
    #$("#santa_clara_'+ta_id+'").closest("form").hook("insertBefore",append_interceptor);\n' */
 
-$(".santa-clara-editor").each(function(){
-    console.log($(this));
-
-    var ta_id=$(this).data("ta_id");
-    var name=$(this).data("ta_name");
-    
-    $(this).santa-clara-editor({
-	textarea_id: ta_id,
-	textarea_name: name
+var set_santaclara_editor = function() {
+    $(".santa-clara-editor").each(function(){
+	console.log($(this));
+	
+	var ta_id=$(this).data("ta_id");
+	var name=$(this).data("ta_name");
+	
+	$(this).santa-clara-editor({
+	    textarea_id: ta_id,
+	    textarea_name: name
+	});
+	
     });
-
-});
+};
 
 /*
 var parent_id=$("#santa_clara_'+ta_id+'").closest("fieldset").parent().attr("id");
