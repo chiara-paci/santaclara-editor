@@ -66,7 +66,7 @@
 	    $("#"+ta_id+"-resizable").resizable({alsoResize: "#"+ta_id+'-editable',
 						 minHeight: 200,
 						 minWidth: 200});
-	    $("#"+ta_id+"-resizable").css({"height":opts.editor_rows+'em',
+	    $("#"+ta_id+"-editable").css({"height":opts.editor_rows+'em',
 	    				   "width":opts.editor_cols+'%'});
 
 	    /* attributes */
