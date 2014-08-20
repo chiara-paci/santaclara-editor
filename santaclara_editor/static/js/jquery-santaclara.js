@@ -90,13 +90,6 @@
 	    /* form submit */
 
 	    var form=$("#"+ta_id).closest("form");
-	    var pta_html="<textarea name=\""+$("#"+ta_id).data("ta_name")+"\"";
-	    pta_html+=" id=\""+ta_id+"\">";
-	    pta_html+="</textarea>";
-	    el.append(pta_html);
-
-	    textarea_object=$("#"+ta_id);
-
 	    form.submit( function(event){
 		var text=self.get_text();
 
