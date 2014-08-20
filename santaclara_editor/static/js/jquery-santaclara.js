@@ -53,7 +53,7 @@
 
 	    /* DOM */
 
-	    if (!old_html) old_html="";
+	    if (!old_html) old_html="\n";
 
 	    if (opts.textarea_name) {
 		html+='<label id="'+ta_id+'-label" for="label_'+opts.textarea_name+'"></label>';
@@ -530,7 +530,7 @@
 		obj=contents[contents.length-1];
 		container=$(obj);
 		text=$(obj).text();
-		pos=new_prev_text.length-1;
+		pos=new_prev_text.length;
 		return ({container:container,pos:pos});
 	    }
 
