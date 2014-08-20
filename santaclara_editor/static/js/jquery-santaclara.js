@@ -400,12 +400,16 @@
 		return ret;
 	    }
 
-	    ret = { 
-		pos: savedRange.startOffset,
-		container: $(savedRange.startContainer),
-	    };
+	    if ( $(savedRange.startContainer)!=this.textarea_id ) {
+		ret = { 
+		    pos: savedRange.startOffset,
+		    container: $(savedRange.startContainer),
+		};
+		return ret;
+	    }
 
-	    return ret;
+	    this.set_text("\n");
+	    return this._get_cursor();
 
 	},
 
@@ -552,6 +556,8 @@
 
 	    if (cursor.pos==-1) return;
 
+	    console.log("ACIT0",cursor);
+
 	    L = cursor.container.text().length;
 	    old_text = cursor.container.text();
 	    new_text=old_text.substring(0,cursor.pos) + text + old_text.substring(cursor.pos,L);
@@ -652,7 +658,7 @@
 	    var cursor=this._get_cursor();
 	    
 	    console.log("USH0",cursor);
-
+	    
 	    if ($(cursor.container).attr("id")==this.textarea_id) {
 		console.log("USH2");
 		this.set_text("\n");
