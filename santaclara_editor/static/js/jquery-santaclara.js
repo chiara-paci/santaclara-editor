@@ -51,7 +51,7 @@
 	    if (!old_html) old_html="pippo";
 
 	    //if (opts.textarea_name) {
-	    html+='<label id="'+ta_id+'-label" name="label_'+opts.textarea_name+'" for="label_'+opts.textarea_name+'"></label>';
+	    html+='<label id="'+ta_id+'-label" for="label_'+opts.textarea_name+'"></label>';
 	    //}
 	    html+=self._toolbar(prefix,ta_id);
 	    html+='<div id="'+ta_id+'-resizable"><div id="'+ta_id+'" class="santa-clara-textarea"';
@@ -78,7 +78,7 @@
 	    var form=$("#"+ta_id).closest("form");
 	    form.submit( function(event){
 		var text=self.get_text();
-		var ta_name=$("#"+ta_id+"-label").attr("name").replace(/^label_/,"");
+		var ta_name=$("#"+ta_id+"-label").attr("for").replace(/^label_/,"");
 
 		var ta_html="<textarea name=\""+ta_name+"\"";
 		ta_html+=" id=\""+ta_id+"\">";
