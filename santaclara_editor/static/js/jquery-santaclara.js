@@ -68,7 +68,7 @@
 						 minWidth: 200});
 	    $("#"+ta_id+"-editable").css({"height":opts.editor_rows+'em',
 	    				  "width":opts.editor_cols+'%'});
-	    $("#"+ta_id+"-resizable").css({"padding":'5em'});
+	    $("#"+ta_id+"-resizable").css({"padding-bottom":'1em'});
 
 	    /* attributes */
 
