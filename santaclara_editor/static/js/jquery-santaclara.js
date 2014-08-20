@@ -419,7 +419,7 @@
 		sel = window.getSelection();
 	    }
 	    if (!$.isArray(container)) {
-		if (container.length)
+		if ($(container).length)
 		    sel.collapse(container,pos);
 		return;
 	    }
@@ -563,11 +563,12 @@
 
 	    console.log("ACIT",L,cursor.pos+visual_length);
 	    
+	    /*
 	    if (L)
 		this._set_cursor(new_node,cursor.pos+visual_length);
 	    else
 		this._set_cursor(new_node,0);
-		
+	    */	
 
 	},
 
@@ -654,6 +655,10 @@
 
 	update_syntax_highlight: function() {
 	    var cursor=this._get_cursor();
+	    if (cursor.pos==-1) {
+		this.set_text("\n");
+		return;
+	    }
 	    var cfr_text=this._split_text_at_pos(cursor.container,cursor.pos);
 	    this.set_text(this.get_text());
 	    var new_cursor=this._split_contents_by_text($("#"+this.textarea_id),cfr_text.prev,cfr_text.next);
