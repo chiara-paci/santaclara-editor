@@ -123,7 +123,7 @@ class SantaClaraJQueryUIWidget(forms.Textarea):
         #H+='$("#santa_clara_'+ta_id+'").closest("form").hook("insertBefore",append_interceptor);\n'
         H+='var parent_id=$("#santa_clara_'+ta_id+'").closest("fieldset").parent().attr("id");\n'
         H+='console.log($("#"+parent_id));\n'
-        H+='$("#"+parent_id).hook("clone",append_interceptor);\n'
+        H+='$("#"+parent_id).parent().hook("clone",append_interceptor);\n'
 
         H+='$("#santa_clara_'+ta_id+'").santa_clara_editor({'
         H+='textarea_id: "'+ta_id+'",'
