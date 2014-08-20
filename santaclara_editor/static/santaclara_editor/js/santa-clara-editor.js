@@ -14,15 +14,9 @@ $(function(){
 	mutationRecords.forEach ( function (mutation) {
 	    if (mutation.addedNodes.length==0) return;
 	    console.log("BEGIN",mutation);
-            console.log("ADDED LEN",mutation.addedNodes.length);
-	    
-            if (typeof mutation.removedNodes == "object") {
-		var jq = $(mutation.removedNodes);
-		console.log (jq);
-		console.log (jq.is("span.myclass2"));
-		console.log (jq.find("span") );
-            }
-
+            console.log("added len",mutation.addedNodes.length);
+	    var new_nodes=$(mutation.addedNodes);
+	    console.log(new_nodes);
 	    console.log("END");
 
 	} );
