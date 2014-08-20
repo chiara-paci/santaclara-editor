@@ -28,7 +28,7 @@ $(function(){
 		      textarea_id: ta_id,
 		      textarea_name: name
 		      });
-		    */
+		    *
 		});*/
 	    });
 
