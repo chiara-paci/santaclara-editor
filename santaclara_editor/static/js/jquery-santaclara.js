@@ -423,7 +423,7 @@
 		return;
 	    }
 
-	    console.log(container,pos);
+	    console.log("set_cursor",container,pos);
 
 	    switch (container.length) {
 	    case 1:
@@ -507,11 +507,6 @@
 	    var in_next=false;
 	    var text,obj;
 
-	    console.log("contents",contents);
-	    console.log("parent",parent);
-	    console.log("prev",text_prev);
-	    console.log("next",text_next);
-
 	    obj=contents[0];
 
 	    for(i=0;i<contents.length;i++) {
@@ -564,6 +559,8 @@
 
 	    new_node=jQuery.parseHTML(new_text);
 	    cursor.container.replaceWith(new_node);
+
+	    console.log("ACIT",L,cursor.pos+visual_length);
 
 	    this._set_cursor(new_node,cursor.pos+visual_length);
 
