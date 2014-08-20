@@ -400,16 +400,11 @@
 		return ret;
 	    }
 
-	    if ( $(savedRange.startContainer).attr("id")!=this.textarea_id ) {
-		ret = { 
-		    pos: savedRange.startOffset,
-		    container: $(savedRange.startContainer),
-		};
-		return ret;
-	    }
-
-	    $('#'+this.textarea_id).html("\n");
-	    return this._get_cursor();
+	    ret = { 
+		pos: savedRange.startOffset,
+		container: $(savedRange.startContainer),
+	    };
+	    return ret;
 
 	},
 
@@ -558,18 +553,26 @@
 
 	    console.log("ACIT0",cursor);
 
+	    if ($(cursor.container).attr("id")==this.textarea_id) {
+		new_text=this._syntax_highlight(text);
+		new_node=jQuery.parseHTML(new_text);
+		$(cursor.container).append(new_node);
+		new_pos=visual_length;
+		console.log("ACIT1",visual_length);
+		this._set_cursor(new_node,new_pos);
+		return;
+	    }
+
 	    L = cursor.container.text().length;
 	    old_text = cursor.container.text();
 	    new_text=old_text.substring(0,cursor.pos) + text + old_text.substring(cursor.pos,L);
 	    new_text=this._remove_syntax_highlight(new_text);
 	    new_text=this._syntax_highlight(new_text);
-
 	    new_node=jQuery.parseHTML(new_text);
 	    cursor.container.replaceWith(new_node);
-
-	    console.log("ACIT",L,cursor.pos+visual_length);
-	    
-	    this._set_cursor(new_node,cursor.pos+visual_length);
+	    new_pos=cursor.pos+visual_length;
+	    console.log("ACIT2",L,cursor.pos+visual_length);
+	    this._set_cursor(new_node,new_pos);
 
 	},
 
