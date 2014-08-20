@@ -12,18 +12,22 @@ $(function(){
 	mutationRecords.forEach ( function (mutation) {
 	    if (mutation.type!="childList") return;
 	    if (mutation.addedNodes.length==0) return;
-	    $(".santa-clara-editor").each(function(){
-		var ta_id=$(this).data("ta_id");
-		var name=$(this).data("ta_name");
-		console.log($(this),ta_id,name);
-		
-		/*
-		$(this).santa_clara_editor({
-		    textarea_id: ta_id,
-		    textarea_name: name
+
+	    $(mutation.addedNodes).each(function(){
+		$(this).children(".santa-clara-editor").each(function(){
+		    var ta_id=$(this).data("ta_id");
+		    var name=$(this).data("ta_name");
+		    console.log($(this),ta_id,name);
+		    
+		    /*
+		      $(this).santa_clara_editor({
+		      textarea_id: ta_id,
+		      textarea_name: name
+		      });
+		    */
 		});
-		*/
 	    });
+
 	});
     };
 
