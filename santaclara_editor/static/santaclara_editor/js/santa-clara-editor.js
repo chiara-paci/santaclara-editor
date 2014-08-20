@@ -17,7 +17,7 @@ var set_santaclara_editor = function() {
 	var ta_id=$(this).data("ta_id");
 	var name=$(this).data("ta_name");
 	
-	$(this).santa-clara-editor({
+	$(this).santa_clara_editor({
 	    textarea_id: ta_id,
 	    textarea_name: name
 	});
