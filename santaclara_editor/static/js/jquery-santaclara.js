@@ -419,7 +419,8 @@
 		sel = window.getSelection();
 	    }
 	    if (!$.isArray(container)) {
-		//sel.collapse(container,pos);
+		if (container.length)
+		    sel.collapse(container,pos);
 		return;
 	    }
 
@@ -565,7 +566,7 @@
 	    if (L)
 		this._set_cursor(new_node,cursor.pos+visual_length);
 	    else
-		this._set_cursor(new_node,cursor.pos+visual_length-1);
+		this._set_cursor(new_node,0);
 		
 
 	},
