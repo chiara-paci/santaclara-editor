@@ -521,6 +521,13 @@
 		in_next=true;
 	    }
 
+	    if (!in_next){
+		obj=contents[contents.length-1];
+		container=$(obj);
+		pos=new_prev_text.length;
+		return ({container:container,pos:pos});
+	    }
+
 	    if (obj.nodeType==3) {
 		text=$(obj).text();
 		container=$(obj);
