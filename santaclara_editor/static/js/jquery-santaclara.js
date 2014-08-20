@@ -526,7 +526,8 @@
 	    if (!in_next){
 		obj=contents[contents.length-1];
 		container=$(obj);
-		pos=new_prev_text.length;
+		text=$(obj).text();
+		pos=text.length;
 		return ({container:container,pos:pos});
 	    }
 
