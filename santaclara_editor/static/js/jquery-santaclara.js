@@ -481,6 +481,9 @@
 	    var text_prev="";
 	    var text_next="";
 	    var i;
+	    
+	    if (!container) return {prev:"",next:""};
+
 	    var text=container.text();
 	    split=this._split_contents_at_pos($("#"+this.textarea_id),container,pos);
 	    for(i=0;i<split.prev.length;i++) text_prev+=split.prev[i].text();
