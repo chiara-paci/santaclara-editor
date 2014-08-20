@@ -70,7 +70,7 @@
 	    				  "width":opts.editor_cols+'%'});
 	    $("#"+ta_id+"-resizable").css({
 		"padding-bottom":'1em',
-		"padding-right":'1em'
+		"padding-right":'2em'
 	    });
 
 	    /* attributes */
