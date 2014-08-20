@@ -1,22 +1,5 @@
 (function($){
  
-    /**
-     * Hooks into a given method
-     *
-     * @param method
-     * @param fn
-     */
-    $.fn.hook = function (method, fn) {
-	var def = $.fn[method];
-	
-	if (def) {
-	    $.fn[method] = function() {
-		var r = def.apply(this, arguments); //original method
-		fn(this, method, arguments); //injected method
-		return r;
-	    }
-	}
-    };
 
     /****
 	 <form ...>
@@ -67,6 +50,9 @@
 
 	    if (!old_html) old_html="pippo";
 
+	    if (opts.textarea_name) {
+		html+='<label id="'+ta_id+'-label" name="label_'+opts.textarea_name+'" for="label_'+opts.textarea_name+'"></label>';
+	    }
 	    html+=self._toolbar(prefix,ta_id);
 	    html+='<div id="'+ta_id+'-resizable"><div id="'+ta_id+'" class="santa-clara-textarea"';
 	    if (opts.textarea_name)
@@ -92,10 +78,9 @@
 	    var form=$("#"+ta_id).closest("form");
 	    form.submit( function(event){
 		var text=self.get_text();
+		var ta_name=$("#"+ta_id+"-label").attr("name").replace(/^label_/,"");
 
-		console.log(textarea_object);
-
-		var ta_html="<textarea name=\""+$("#"+ta_id).data("ta_name")+"\"";
+		var ta_html="<textarea name=\""+ta_name+"\"";
 		ta_html+=" id=\""+ta_id+"\">";
 		ta_html+=text;
 		ta_html+="</textarea>";

@@ -21,8 +21,11 @@ $(function(){
 		*/
 		$(this).find(".santa-clara-editor").each(function(){
 		    var ta_id=$(this).attr("id").replace(/^santa_clara_/,"");
-		    var name=$(this).prop("for").replace(/^santa_clara_/,"");
-		    console.log($(this),ta_id,name);
+		    var name=$("#"+ta_id+"-label").attr("name").replace(/^label_/,"");
+		    var label_for=$("#"+ta_id+"-label").attr("for").replace(/^label_/,"");
+
+		    //var name=$(this).prop("for").replace(/^santa_clara_/,"");
+		    console.log($(this),ta_id,name,label_for);
 		    
 		    /*
 		      $(this).santa_clara_editor({
