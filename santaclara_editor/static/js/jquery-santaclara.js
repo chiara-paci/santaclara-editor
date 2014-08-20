@@ -426,6 +426,7 @@
 
 	    switch (container.length) {
 	    case 1:
+		console.log(container[0].length);
 		sel.collapse(container[0],pos);
 		break;
 	    case 2:
