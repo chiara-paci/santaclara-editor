@@ -50,9 +50,9 @@
 
 	    if (!old_html) old_html="pippo";
 
-	    if (opts.textarea_name) {
-		html+='<label id="'+ta_id+'-label" name="label_'+opts.textarea_name+'" for="label_'+opts.textarea_name+'"></label>';
-	    }
+	    //if (opts.textarea_name) {
+	    html+='<label id="'+ta_id+'-label" name="label_'+opts.textarea_name+'" for="label_'+opts.textarea_name+'"></label>';
+	    //}
 	    html+=self._toolbar(prefix,ta_id);
 	    html+='<div id="'+ta_id+'-resizable"><div id="'+ta_id+'" class="santa-clara-textarea"';
 	    if (opts.textarea_name)
