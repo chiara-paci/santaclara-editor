@@ -14,11 +14,11 @@ $(function(){
 	    if (mutation.addedNodes.length==0) return;
 
 	    $(mutation.addedNodes).each(function(){
-		if (typeof $(this) == "object") {
+		if (typeof $(this).0 == "object") {
 		    console.log($(this));
 		}
 		else {
-		    console.log(typeof $(this));
+		    console.log(typeof $(this).0);
 		}
 		$(this).children(".santa-clara-editor").each(function(){
 		    var ta_id=$(this).data("ta_id");
