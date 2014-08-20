@@ -500,6 +500,11 @@
 	    var in_next=false;
 	    var text,obj;
 
+	    console.log("contents",contents);
+	    console.log("parent",parent);
+	    console.log("prev",text_prev);
+	    console.log("next",text_next);
+
 	    obj=contents[0];
 
 	    for(i=0;i<contents.length;i++) {
