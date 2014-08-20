@@ -655,6 +655,9 @@
 
 	update_syntax_highlight: function() {
 	    var cursor=this._get_cursor();
+	    
+	    console.log("USH0",cursor);
+
 	    if (cursor.pos==-1) {
 		this.set_text("\n");
 		return;
@@ -662,7 +665,7 @@
 	    var cfr_text=this._split_text_at_pos(cursor.container,cursor.pos);
 	    this.set_text(this.get_text());
 	    var new_cursor=this._split_contents_by_text($("#"+this.textarea_id),cfr_text.prev,cfr_text.next);
-	    console.log("USH",new_cursor);
+	    console.log("USH1",new_cursor);
 	    this._set_cursor(new_cursor.container.get(0),new_cursor.pos);
 	}
 
