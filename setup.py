@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='santaclara_editor',
-    version='0.3.3.44',
+    version='0.3.3.45',
     packages=['santaclara_editor'],
     requires=['santaclara_third'],
     package_data={'santaclara_editor': [

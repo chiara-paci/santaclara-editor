@@ -14,7 +14,12 @@ $(function(){
 	    if (mutation.addedNodes.length==0) return;
 
 	    $(mutation.addedNodes).each(function(){
-		console.log($(this));
+		if (typeof $(this) == "object") {
+		    console.log($(this));
+		}
+		else {
+		    console.log(typeof $(this));
+		}
 		$(this).children(".santa-clara-editor").each(function(){
 		    var ta_id=$(this).data("ta_id");
 		    var name=$(this).data("ta_name");
