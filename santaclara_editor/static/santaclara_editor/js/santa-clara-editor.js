@@ -16,7 +16,9 @@ $(function(){
 	    console.log("BEGIN",mutation);
             console.log("added len",mutation.addedNodes.length);
 	    var new_nodes=$(mutation.addedNodes);
-	    console.log(new_nodes);
+	    new_nodes.each(function(){
+		console.log ($(this).is("div.santa-clara-editor"),$(this));
+	    });
 	    console.log("END");
 
 	} );
