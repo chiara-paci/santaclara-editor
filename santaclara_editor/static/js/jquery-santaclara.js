@@ -67,7 +67,8 @@
 						 minHeight: 200,
 						 minWidth: 200});
 	    $("#"+ta_id+"-editable").css({"height":opts.editor_rows+'em',
-	    				   "width":opts.editor_cols+'%'});
+	    				  "width":opts.editor_cols+'%'});
+	    $("#"+ta_id+"-resizable").css({"padding":'5em'});
 
 	    /* attributes */
 
