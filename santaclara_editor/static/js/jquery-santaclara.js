@@ -1,4 +1,22 @@
-(function($) {
+(function($){
+ 
+    /**
+     * Hooks into a given method
+     *
+     * @param method
+     * @param fn
+     */
+    $.fn.hook = function (method, fn) {
+	var def = $.fn[method];
+	
+	if (def) {
+	    $.fn[method] = function() {
+		var r = def.apply(this, arguments); //original method
+		fn(this, method, arguments); //injected method
+		return r;
+	    }
+	}
+    };
 
     /****
 	 <form ...>
@@ -46,6 +64,9 @@
 		ta_id=prefix+"textarea";
 
 	    /* DOM */
+
+	    if (!old_html) old_html="pippo";
+
 	    html+=self._toolbar(prefix,ta_id);
 	    html+='<div id="'+ta_id+'-resizable"><div id="'+ta_id+'" class="santa-clara-textarea"';
 	    if (opts.textarea_name)
@@ -59,6 +80,8 @@
 	    $("#"+ta_id+"-resizable").css({"height":opts.editor_rows+'em',
 	    				   "width":opts.editor_cols+'%'});
 
+	    
+
 	    /* attributes */
 
 	    this.textarea_id=ta_id;
@@ -67,8 +90,18 @@
 	    /* form submit */
 
 	    var form=$("#"+ta_id).closest("form");
+	    var pta_html="<textarea name=\""+$("#"+ta_id).data("ta_name")+"\"";
+	    pta_html+=" id=\""+ta_id+"\">";
+	    pta_html+="</textarea>";
+	    el.append(pta_html);
+
+	    textarea_object=$("#"+ta_id);
+
 	    form.submit( function(event){
 		var text=self.get_text();
+
+		console.log(textarea_object);
+
 		var ta_html="<textarea name=\""+$("#"+ta_id).data("ta_name")+"\"";
 		ta_html+=" id=\""+ta_id+"\">";
 		ta_html+=text;

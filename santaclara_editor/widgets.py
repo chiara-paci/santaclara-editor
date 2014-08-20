@@ -97,17 +97,23 @@ class SantaClaraJQueryUIWidget(forms.Textarea):
     def render(self, name, value, attrs=None):
         ta_id=attrs["id"]
 
-        print self.attrs
-        
         html = super(SantaClaraJQueryUIWidget, self).render(name, value, attrs=attrs)
+
         H=u'<div id="santa_clara_'+ta_id+'"'
         if self.attrs["style"]:
             H+=' class="'+self.attrs["style"]+'"'
+        H+=' data-ta_name="'+name+'"'
+        H+=' data-ta_id="'+ta_id+'"'
         H+=u'>'
         H+=unicode(value)
         H+='</div>'
         H+="\n"
         H+='<script type="text/javascript">\n'
+
+        H+='$("#santa_clara_'+ta_id+'").parent().hook("append",function(obj,method,arguments){\n'
+        H+='console.log("append");\n'
+        H+=' });'
+
         H+='$("#santa_clara_'+ta_id+'").santa_clara_editor({'
         H+='textarea_id: "'+ta_id+'",'
         H+='textarea_name: "'+name+'"'
