@@ -1,16 +1,15 @@
+$(function(){
+    var append_interceptor = function(obj,method,arguments){
+	console.log(method);
+	console.log(obj);
+	console.log(arguments);
+    };
 
-var append_interceptor = function(obj,method,arguments){
-    console.log(method);
-    console.log(obj);
-    console.log(arguments);
-};
 
 
-
-/* $("#santa_clara_'+ta_id+'").closest("form").hook("append",append_interceptor);\n'
-   #$("#santa_clara_'+ta_id+'").closest("form").hook("insertBefore",append_interceptor);\n' */
-
-var set_santaclara_editor = function() {
+    /* $("#santa_clara_'+ta_id+'").closest("form").hook("append",append_interceptor);\n'
+       #$("#santa_clara_'+ta_id+'").closest("form").hook("insertBefore",append_interceptor);\n' */
+    
     $(".santa-clara-editor").each(function(){
 	console.log($(this));
 	
@@ -23,7 +22,7 @@ var set_santaclara_editor = function() {
 	});
 	
     });
-};
+});
 
 /*
 var parent_id=$("#santa_clara_'+ta_id+'").closest("fieldset").parent().attr("id");
