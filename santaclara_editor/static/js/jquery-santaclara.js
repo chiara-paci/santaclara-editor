@@ -53,7 +53,7 @@
 
 	    /* DOM */
 
-	    if (!old_html) old_html="pippo";
+	    if (!old_html) old_html="";
 
 	    if (opts.textarea_name) {
 		html+='<label id="'+ta_id+'-label" for="label_'+opts.textarea_name+'"></label>';
@@ -139,8 +139,8 @@
 
 	    $("#"+this.textarea_id).keypress(function(event){
 		if (event.which==0) return;
-		console.log(event);
 		var special= [ "<", ">", "Enter" ];
+
 		self.last_modify_time=$.now();
 		
 		setTimeout(function(){
@@ -151,6 +151,7 @@
 		
 		if (jQuery.inArray(event.key,special)==-1) return;
 		event.preventDefault();
+
 		switch (event.key) {
 		case "<":
 		    self._at_cursor_insert_text("&lt;");
@@ -634,6 +635,7 @@
 	    var cfr_text=this._split_text_at_pos(cursor.container,cursor.pos);
 	    this.set_text(this.get_text());
 	    var new_cursor=this._split_contents_by_text($("#"+this.textarea_id),cfr_text.prev,cfr_text.next);
+	    console.log("USH",new_cursor);
 	    this._set_cursor(new_cursor.container.get(0),new_cursor.pos);
 	}
 
