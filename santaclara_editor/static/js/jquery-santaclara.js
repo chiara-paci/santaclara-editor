@@ -38,11 +38,6 @@
 	    var prefix=el.attr("id");
 	    var ta_id;
 
-	    if ($("#"+ta_id+"-resizable").length) 
-		old_html=self.get_text();
-	    else
-		old_html=el.html();
-
 	    /* variables */
 	    if (prefix) { prefix+="-"; }
 	    prefix+="sc-editor-";
@@ -50,6 +45,11 @@
 		ta_id=opts.textarea_id;
 	    else
 		ta_id=prefix+"textarea";
+
+	    if ($("#"+ta_id+"-resizable").length) 
+		old_html=self.get_text();
+	    else
+		old_html=el.html();
 
 	    /* DOM */
 
