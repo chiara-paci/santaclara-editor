@@ -12,13 +12,8 @@ $(function(){
 	console.log("mutationHandler:");
 	
 	mutationRecords.forEach ( function (mutation) {
-	    console.log("begin",mutation);
-	    if (typeof mutation.addedNodes != "object") {
-		console.log("NO",mutation.addedNodes);
-		return;
-	    }
-	    
-            console.log(mutation.type);
+	    console.log("BEGIN",mutation);
+            console.log("ADDED LEN",mutation.addedNodes.length);
 	    
             if (typeof mutation.removedNodes == "object") {
 		var jq = $(mutation.removedNodes);
@@ -27,7 +22,7 @@ $(function(){
 		console.log (jq.find("span") );
             }
 
-	    console.log("end");
+	    console.log("END");
 
 	} );
     }
