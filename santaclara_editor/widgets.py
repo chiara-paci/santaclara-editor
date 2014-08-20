@@ -107,6 +107,7 @@ class SantaClaraJQueryUIWidget(forms.Textarea):
             H+=' class="santa-clara-editor"'
         H+=' data-ta_id="'+ta_id+'"'
         H+=' data-ta_name="'+name+'"'
+        H+=' data-dom_added="no"'
         H+=u'>'
         H+=unicode(value)
         H+='</div>\n'

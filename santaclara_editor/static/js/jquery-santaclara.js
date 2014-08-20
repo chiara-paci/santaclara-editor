@@ -48,24 +48,27 @@
 
 	    /* DOM */
 
-	    if (!old_html) old_html="pippo";
+	    if (el.data("dom_added")!="yes") {
 
-	    //if (opts.textarea_name) {
-	    html+='<label id="'+ta_id+'-label" for="label_'+opts.textarea_name+'"></label>';
-	    //}
-	    html+=self._toolbar(prefix,ta_id);
-	    html+='<div id="'+ta_id+'-resizable"><div id="'+ta_id+'" class="santa-clara-textarea"';
-	    if (opts.textarea_name)
-		html+=' data-ta_name="'+opts.textarea_name+'"';
-	    html+='>'+self._syntax_highlight(old_html)+'</div></div>';
-	    el.html(html);
-	    $("#"+ta_id).attr("contenteditable","true");
-	    $("#"+ta_id+"-resizable").resizable({alsoResize: "#"+ta_id,
-						 minHeight: 200,
-						 minWidth: 200});
-	    $("#"+ta_id+"-resizable").css({"height":opts.editor_rows+'em',
-	    				   "width":opts.editor_cols+'%'});
+		if (!old_html) old_html="pippo";
 
+		if (opts.textarea_name) {
+		    html+='<label id="'+ta_id+'-label" for="label_'+opts.textarea_name+'"></label>';
+		}
+		html+=self._toolbar(prefix,ta_id);
+		html+='<div id="'+ta_id+'-resizable"><div id="'+ta_id+'" class="santa-clara-textarea"';
+		if (opts.textarea_name)
+		    html+=' data-ta_name="'+opts.textarea_name+'"';
+		html+='>'+self._syntax_highlight(old_html)+'</div></div>';
+		el.html(html);
+		$("#"+ta_id).attr("contenteditable","true");
+		$("#"+ta_id+"-resizable").resizable({alsoResize: "#"+ta_id,
+						     minHeight: 200,
+						     minWidth: 200});
+		$("#"+ta_id+"-resizable").css({"height":opts.editor_rows+'em',
+	    				       "width":opts.editor_cols+'%'});
+		el.data("dom_added","yes");
+	    }
 	    
 
 	    /* attributes */
@@ -84,7 +87,9 @@
 		ta_html+=" id=\""+ta_id+"\">";
 		ta_html+=text;
 		ta_html+="</textarea>";
+		$("textarea#"+ta_id).remove();
 		$(this).append(ta_html);
+
 		return true;
 	    });
 
