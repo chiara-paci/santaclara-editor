@@ -408,7 +408,7 @@
 		return ret;
 	    }
 
-	    this.set_text("\n");
+	    $('#'+this.textarea_id).html("\n");
 	    return this._get_cursor();
 
 	},
