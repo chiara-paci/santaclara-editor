@@ -38,7 +38,7 @@
 	    var prefix=el.attr("id");
 	    var ta_id;
 
-	    if ($("#"+ta_id+"-resizable")) 
+	    if ($("#"+ta_id+"-resizable").length) 
 		old_html=self.get_text();
 	    else
 		old_html=el.html();
@@ -58,14 +58,12 @@
 	    if (opts.textarea_name) {
 		html+='<label id="'+ta_id+'-label" for="label_'+opts.textarea_name+'"></label>';
 	    }
-	    html+=self._toolbar(prefix,ta_id);
-	    html+='<div id="'+ta_id+'-resizable"><div id="'+ta_id+'" class="santa-clara-textarea"';
-	    if (opts.textarea_name)
-		html+=' data-ta_name="'+opts.textarea_name+'"';
+	    html+=self._toolbar(prefix,ta_id+"-editable");
+	    html+='<div id="'+ta_id+'-resizable"><div id="'+ta_id+'-editable" class="santa-clara-textarea"';
 	    html+='>'+self._syntax_highlight(old_html)+'</div></div>';
 	    el.html(html);
-	    $("#"+ta_id).attr("contenteditable","true");
-	    $("#"+ta_id+"-resizable").resizable({alsoResize: "#"+ta_id,
+	    $("#"+ta_id+"-editable").attr("contenteditable","true");
+	    $("#"+ta_id+"-resizable").resizable({alsoResize: "#"+ta_id+'-editable',
 						 minHeight: 200,
 						 minWidth: 200});
 	    $("#"+ta_id+"-resizable").css({"height":opts.editor_rows+'em',
@@ -73,12 +71,12 @@
 
 	    /* attributes */
 
-	    this.textarea_id=ta_id;
+	    this.textarea_id=ta_id+"-editable";
 	    this.last_modify_time=0;
 
 	    /* form submit */
 
-	    var form=$("#"+ta_id).closest("form");
+	    var form=$("#"+this.textarea_id).closest("form");
 	    form.submit( function(event){
 		var text=self.get_text();
 		var ta_name=$("#"+ta_id+"-label").attr("for").replace(/^label_/,"");
@@ -87,7 +85,7 @@
 		ta_html+=" id=\""+ta_id+"\">";
 		ta_html+=text;
 		ta_html+="</textarea>";
-		$("textarea#"+ta_id).remove();
+		$("#"+ta_id).remove();
 		$(this).append(ta_html);
 
 		return true;
@@ -123,7 +121,7 @@
 
 	    /* cut/copy/paste event */
 
-	    $("#"+ta_id).bind("cut paste",function(event){
+	    $("#"+this.textarea_id).bind("cut paste",function(event){
 		self.last_modify_time=$.now();
 		setTimeout(function(){
 		    var when_typed=$.now();
@@ -135,7 +133,7 @@
 
 	    /* keyboard event */
 
-	    $("#"+ta_id).keypress(function(event){
+	    $("#"+this.textarea_id).keypress(function(event){
 		if (event.which==0) return;
 		console.log(event);
 		var special= [ "<", ">", "Enter" ];
