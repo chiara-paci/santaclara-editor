@@ -391,8 +391,6 @@
 	    var jq_ancestor=$(savedRange.commonAncestorContainer);
 	    var ret;
 
-	    console.log("JQA",jq_ancestor);
-
 	    if ( (jq_ancestor.attr("id")!=this.textarea_id) &&
 		 ( $('#'+this.textarea_id).has(jq_ancestor).length == 0 ) ) {
 		ret = { 
@@ -565,12 +563,7 @@
 
 	    console.log("ACIT",L,cursor.pos+visual_length);
 	    
-	    /*
-	    if (L)
-		this._set_cursor(new_node,cursor.pos+visual_length);
-	    else
-		this._set_cursor(new_node,0);
-	    */	
+	    this._set_cursor(new_node,cursor.pos+visual_length);
 
 	},
 
