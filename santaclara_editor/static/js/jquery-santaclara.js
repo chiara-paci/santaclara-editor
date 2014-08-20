@@ -419,7 +419,7 @@
 		sel = window.getSelection();
 	    }
 	    if (!$.isArray(container)) {
-		sel.collapse(container,pos);
+		//sel.collapse(container,pos);
 		return;
 	    }
 
@@ -561,8 +561,12 @@
 	    cursor.container.replaceWith(new_node);
 
 	    console.log("ACIT",L,cursor.pos+visual_length);
-
-	    this._set_cursor(new_node,cursor.pos+visual_length);
+	    
+	    if (L)
+		this._set_cursor(new_node,cursor.pos+visual_length);
+	    else
+		this._set_cursor(new_node,cursor.pos+visual_length-1);
+		
 
 	},
 
