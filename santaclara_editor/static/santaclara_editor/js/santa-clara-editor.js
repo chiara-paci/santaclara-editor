@@ -8,26 +8,28 @@ $(function(){
     /* $("#santa_clara_'+ta_id+'").closest("form").hook("append",append_interceptor);\n'
        #$("#santa_clara_'+ta_id+'").closest("form").hook("insertBefore",append_interceptor);\n' */
 
-    function mutationHandler (mutationRecords) {
-	console.log("mutationHandler:");
-	
+    var mutationHandler = function (mutationRecords) {
 	mutationRecords.forEach ( function (mutation) {
+	    if (mutation.type!="childList") return;
 	    if (mutation.addedNodes.length==0) return;
-	    console.log("BEGIN",mutation);
-            console.log("added len",mutation.addedNodes.length);
-	    var new_nodes=$(mutation.addedNodes);
-	    new_nodes.each(function(){
-		console.log ($(this).is(".santa-clara-editor"),$(this));
+	    $(".santa-clara-editor").each(function(){
+		var ta_id=$(this).data("ta_id");
+		var name=$(this).data("ta_name");
+		console.log($(this),ta_id,name);
+		
+		/*
+		$(this).santa_clara_editor({
+		    textarea_id: ta_id,
+		    textarea_name: name
+		});
+		*/
 	    });
-	    console.log("END");
-
-	} );
-    }
+	});
+    };
 
     var MutationObserver    = window.MutationObserver || window.WebKitMutationObserver;
     var myObserver          = new MutationObserver (mutationHandler);
     var obsConfig           = { childList: true, characterData: true, attributes: true, subtree: true };
-
     
     $(".santa-clara-editor").each(function(){
 	console.log($(this));
@@ -39,13 +41,12 @@ $(function(){
 	    textarea_id: ta_id,
 	    textarea_name: name
 	});
-
-	$(this).closest("fieldset").parent().parent().each( function () {
-	    myObserver.observe (this, obsConfig);
-	});
-
-	
     });
+	
+    $("form").each( function () {
+	myObserver.observe (this, obsConfig);
+    });
+
 
     /*
     var targetNodes         = $(".santa-clara-editor");
