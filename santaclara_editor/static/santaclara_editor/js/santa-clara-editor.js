@@ -12,6 +12,7 @@ $(function(){
 	console.log("mutationHandler:");
 	
 	mutationRecords.forEach ( function (mutation) {
+	    if (mutation.addendNodes.length==0) return;
 	    console.log("BEGIN",mutation);
             console.log("ADDED LEN",mutation.addedNodes.length);
 	    
