@@ -527,7 +527,7 @@
 		obj=contents[contents.length-1];
 		container=$(obj);
 		text=$(obj).text();
-		pos=text.length;
+		pos=new_prev_text.length;
 		return ({container:container,pos:pos});
 	    }
 
