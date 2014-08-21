@@ -53,7 +53,7 @@
 
 	    /* DOM */
 
-	    if (!old_html) old_html="\n";
+	    if (!old_html) old_html="";
 
 	    if (opts.textarea_name) {
 		html+='<label id="'+ta_id+'-label" for="label_'+opts.textarea_name+'"></label>';
@@ -247,6 +247,7 @@
 	    ret=ret.replace(patt_open,'<span class="santa-clara-syntax-highlight santa-clara-sh-$1">[$1$2]');
 	    ret=ret.replace(patt_open_simple,'<span class="santa-clara-syntax-highlight santa-clara-sh-$1">[$1]');
 	    ret=ret.replace(patt_close,'[/$1]</span>');
+	    ret+='<span class="terminal"></span>';
 	    return ret;
 	},
 
@@ -553,16 +554,6 @@
 
 	    console.log("ACIT0",cursor);
 
-	    if ($(cursor.container).attr("id")==this.textarea_id) {
-		new_text=this._syntax_highlight(text);
-		new_node=jQuery.parseHTML(new_text);
-		$(cursor.container).append(new_node);
-		new_pos=visual_length;
-		console.log("ACIT1",visual_length);
-		this._set_cursor(new_node,new_pos);
-		return;
-	    }
-
 	    L = cursor.container.text().length;
 	    old_text = cursor.container.text();
 	    new_text=old_text.substring(0,cursor.pos) + text + old_text.substring(cursor.pos,L);
@@ -661,13 +652,13 @@
 	    var cursor=this._get_cursor();
 	    
 	    console.log("USH0",cursor);
-	    
-	    if ($(cursor.container).attr("id")==this.textarea_id) {
-		if (!this.get_text().length){
-		    console.log("USH2");
-		    return;
-		}
-	    }
+	    /*
+	    if ( ($(cursor.container).attr("id")==this.textarea_id)
+		 && (!this.get_text().length) ){
+		console.log("USH2");
+		return;
+	    }*/
+
 	    var cfr_text=this._split_text_at_pos(cursor.container,cursor.pos);
 	    this.set_text(this.get_text());
 	    var new_cursor=this._split_contents_by_text($("#"+this.textarea_id),cfr_text.prev,cfr_text.next);
