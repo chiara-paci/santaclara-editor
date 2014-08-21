@@ -560,9 +560,15 @@
 	    new_text=this._remove_syntax_highlight(new_text);
 	    new_text=this._syntax_highlight(new_text);
 	    new_node=jQuery.parseHTML(new_text);
-	    cursor.container.replaceWith(new_node);
+
+	    if ($(cursor.container).attr("id")==this.textarea_id) {
+		$(cursor.container).append(new_node);
+		console.log("ACIT1",visual_length);
+	    } else {
+		cursor.container.replaceWith(new_node);
+		console.log("ACIT2",L,cursor.pos+visual_length);
+	    }
 	    new_pos=cursor.pos+visual_length;
-	    console.log("ACIT2",L,cursor.pos+visual_length);
 	    this._set_cursor(new_node,new_pos);
 
 	},
