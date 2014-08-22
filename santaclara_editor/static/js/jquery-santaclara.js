@@ -383,6 +383,8 @@
 	    var savedRange;
 
 	    if(window.getSelection) { //non IE Browsers
+		console.log(window.getSelection());
+		console.log(window.getSelection().getRangeAt(0));
 		savedRange = window.getSelection().getRangeAt(0);
 	    }
 	    else if(document.selection) {//IE
