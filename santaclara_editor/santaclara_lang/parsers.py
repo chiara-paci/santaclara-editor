@@ -44,8 +44,10 @@ class SantaClaraLang(object):
         #t=map(lambda x: x[0],self.tokenizer.findall(value))
         for n in range(0,self.hdeep):
             self.tags["h"+str(n+1)].reset()
-            
-        t=self.tokenizer.split(value)
+
+        v=value.replace(r'//','&#47;').replace("[[","&#91;").replace("]]","&#93;")
+        t=self.tokenizer.split(v)
+
         if not internal and self.tags.has_key("img"):
             self.tags["img"].reset()
         B=Base(self)
@@ -103,6 +105,7 @@ class SantaClaraLang(object):
     def filter(self,value,ind=0,autoescape=None):
         B=self.mk_base(value,ind=ind)
         S=B.format["html"](autoescape)
+        S=S.strip()
         return(mark_safe(S))
 
     def filter_pdf(self,value):
