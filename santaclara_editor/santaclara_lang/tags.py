@@ -95,6 +95,7 @@ class Tag(object):
                 S+=esc(e)
                 continue
             S+=e.format[outtype](autoescape)
+        S=S.strip()
         return(S)
 
     def pdf(self,autoescape,outtype="pdf"):
