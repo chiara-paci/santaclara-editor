@@ -57,8 +57,8 @@ def santa_clara_json(value,ind=0,autoescape=None):
         esc = lambda x: x
     txt=language_register.extended.filter(value,ind,lambda x: x)
     txt=esc(txt).replace('"',"'")
-    txt=txt.replace('\n',"<br/>")
-    txt=txt.replace('\\',r"&#92")
+    txt=txt.replace(r'\n',r"<br/>")
+    txt=txt.replace(r'\\',r"&#92")
     return txt
 register.filter("santa_clara_json",santa_clara_json)
 santa_clara_json.needs_autoescape = True
