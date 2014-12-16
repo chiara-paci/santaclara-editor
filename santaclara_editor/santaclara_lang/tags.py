@@ -285,7 +285,7 @@ class DivTag(Tag):
     def output(self,autoescape,outtype="html"):
         S="<div class=\""+self.style+"\">"
         S+=Tag.output(self,autoescape,outtype)
-        S+="</div>\n"
+        S+="</div>"
         return(S)
 
 class AlignTag(Tag):
@@ -297,7 +297,7 @@ class AlignTag(Tag):
     def output(self,autoescape,outtype="html"):
         S="<div class=\""+self.style+"\">"
         S+=Tag.output(self,autoescape,outtype)
-        S+="</div>\n"
+        S+="</div>"
         return(S)
 
 class QuoteTag(Tag):
@@ -335,11 +335,11 @@ class QuoteTag(Tag):
         if self.args["url"]:
             S+=" <a href=\""+self.args["url"]+"\"><i class=\"icon-circle-arrow-right\"></i>"
             S+="<span class=\"tooltip\">View original text</span></a>"
-        S+="</div>\n"
+        S+="</div>"
         S+="<div class=\"quotetext\">"
         S+=Tag.output(self,autoescape,outtype)
-        S+="</div>\n"
-        S+="</div>\n"
+        S+="</div>"
+        S+="</div>"
         return(S)
 
 class CiteTag(Tag):
@@ -390,10 +390,10 @@ class CiteTag(Tag):
         S="<div class=\"citediv\">"
         S+="<div class=\"citetext\">"
         S+=Tag.output(self,autoescape,outtype)
-        S+="</div>\n"
+        S+="</div>"
 
         if not self.args["show_reference"]:
-            S+="</div>\n"
+            S+="</div>"
             return(S)
             
         S+="<div class=\"citefooter\">"
@@ -402,9 +402,9 @@ class CiteTag(Tag):
         S+=self.args["label"]
         if self.args["url"]:
             S+="<span class=\"tooltip\">View original text</span></a>"
-        S+="</div>\n"
+        S+="</div>"
 
-        S+="</div>\n"
+        S+="</div>"
         return(S)
 
 
@@ -427,7 +427,7 @@ class PreTag(Tag):
     def output(self,autoescape,outtype="html"):
         S="<pre class=\""+self.style+"\">"
         S+=Tag.output(self,autoescape,outtype)
-        S+="</pre>\n"
+        S+="</pre>"
         return(S)
 
 class SingleTag(Tag):
@@ -436,7 +436,7 @@ class SingleTag(Tag):
         self.tid=tid
 
     def output(self,autoescape,outtype="html"):
-        S="<"+self.tid+"/>\n"
+        S="<"+self.tid+"/>"
         return(S)
 
 class LineBreakTag(SingleTag):
