@@ -101,7 +101,7 @@ class SantaClaraJQueryUIWidget(forms.Textarea):
         html = super(SantaClaraJQueryUIWidget, self).render(name, value, attrs=attrs)
 
         H=u'<div id="santa_clara_'+ta_id+'"'
-        if self.attrs["style"]:
+        if self.attrs.has_key("style") and self.attrs["style"]:
             H+=' class="santa-clara-editor '+self.attrs["style"]+'"'
         else:
             H+=' class="santa-clara-editor"'
