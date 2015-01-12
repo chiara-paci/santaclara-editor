@@ -196,6 +196,7 @@ class SantaClaraAceWidget(forms.Textarea):
 
 
     def render(self, name, value, attrs=None):
+        html = super(SantaClaraAceWidget, self).render(name, value, attrs=attrs)
         ta_id=attrs["id"]
 
         html='<div id="santa_clara_text_editor_box_'+ta_id+'" class="santa_clara_text_editor_box"'
