@@ -24,12 +24,13 @@
 
 .santa_clara_text_editor_box {
     margin: 1em;
-    margin-top: 10em;
+    margin-top: 1em;
     box-shadow: -5px 2px 5px -5px rgb(96,96,96), 5px 2px 5px -5px rgb(96,96,96);
     -webkit-box-shadow: -5px 2px 5px -5px rgb(96,96,96), 5px 2px 5px -5px rgb(96,96,96);
     -moz-box-shadow: -5px 2px 5px -5px rgb(96,96,96), 5px 2px 5px -5px rgb(96,96,96);
     padding: 1em;
     padding-top: 2em;
+    padding-left: 4em;
     /*width: 60em;*/
 }
 
