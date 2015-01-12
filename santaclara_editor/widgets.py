@@ -261,5 +261,7 @@ class SantaClaraAceWidget(forms.Textarea):
         html+='</div>'
 
         html+='</div><!-- text_editor_box -->'
+
+        print html
         
         return mark_safe(html)
