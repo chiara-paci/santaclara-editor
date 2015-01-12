@@ -8,13 +8,14 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='santaclara_editor',
-    version='0.3.5.1',
+    version='0.3.6.2',
     packages=['santaclara_editor'],
     requires=['santaclara_third'],
     package_data={'santaclara_editor': [
             'static/css/*',
             'static/js/*',
             'static/santaclara_editor/js/*',
+            'static/santaclara_editor/css/*',
             'templatetags/*',
             'santaclara_lang/*',
             ]},
