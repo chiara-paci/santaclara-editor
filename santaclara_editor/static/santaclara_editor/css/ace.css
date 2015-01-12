@@ -41,7 +41,7 @@
     border-radius: 0px;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
-    font-size: 80%;
+    padding: .5em;
     padding-left: .5em;
     padding-right: .5em;
     min-width: 1.5em;
@@ -56,7 +56,7 @@
 }
 
 .santa_clara_text_editor_button_bar a {
-    border: 2px solid #5B80B2;
+    border: 1px solid #000;
     background: url('../img/nav-bg.gif') repeat-x scroll center bottom #FFF;
     height: 100%;
     padding-left: .4em;
@@ -77,7 +77,7 @@
     bottom: 2em;
     left: 0px;
     font-size: 80%;
-    color: #000;
+    color: #fff;
     background: url('../img/default-bg.gif') repeat-x scroll center bottom #7CA0C7;
 }
 
@@ -88,7 +88,7 @@
 
 .santa_clara_text_editor_button_bar a:hover,
 .santa_clara_text_editor_button_bar a:active {
-    border: 2px solid #5B80B2;
+    border: 1px solid #5B80B2;
     background: url('../img/default-bg.gif') repeat-x scroll center bottom #7CA0C7;
     font-weight: bold;
     color: #FFF;
