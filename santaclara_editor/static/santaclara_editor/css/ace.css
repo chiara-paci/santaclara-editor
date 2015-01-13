@@ -16,7 +16,7 @@
 
 .santa_clara_text_editor { 
     position: relative;
-    /*height: 30em;*/
+    height: 30em;
     width: 100%;
     border: 1px solid #000000;
     font-size: 12pt;
