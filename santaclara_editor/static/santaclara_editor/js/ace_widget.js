@@ -1,40 +1,14 @@
 $(function(){
-    var mutationHandler = function (mutationRecords) {
-	mutationRecords.forEach ( function (mutation) {
-	    if (mutation.type!="childList") return;
-	    if (mutation.addedNodes.length==0) return;
-
-	    $(mutation.addedNodes).each(function(){
-		$(this).find(".santa-clara-editor").each(function(){
-		    var ta_id=$(this).attr("id").replace(/^santa_clara_/,"");
-		    var name=$("#"+ta_id+"-label").attr("for").replace(/^label_/,"");
-
-		    console.log($(this),ta_id,name);
-		    
-		    $(this).santa_clara_editor({
-			textarea_id: ta_id,
-			textarea_name: name
-		    });
-		});
-	    });
-
-	});
-    };
-
-    var MutationObserver    = window.MutationObserver || window.WebKitMutationObserver;
-    var myObserver          = new MutationObserver (mutationHandler);
-    var obsConfig           = { childList: true, characterData: true, attributes: true, subtree: true };
-    
     var EDITOR_DICT = {};
 
-    $(".santa_clara_text_editor").each(function(){
-	console.log($(this));
-	var ta_id=$(this).data("ta_id");
-	var name=$(this).data("ta_name");
-	var santa_clara_text_editor_id=$(this).attr("id");
+    var set_santa_clara_text_editor = function(jq_object){
+	console.log(jq_object);
+	var ta_id=jq_object.data("ta_id");
+	var name=jq_object.data("ta_name");
+	var santa_clara_text_editor_id=jq_object.attr("id");
 
 	var editor=ace.edit(santa_clara_text_editor_id);
-	var jq_editor_box=$(this).parent();
+	var jq_editor_box=jq_object.parent();
 
 	EDITOR_DICT[santa_clara_text_editor_id]=editor;
 
@@ -45,6 +19,7 @@ $(function(){
 	editor.setShowPrintMargin(false);
 
 	editor.on("change",function(event){
+	    console.log(jq_editor_box);
 	    jq_editor_box.addClass("modified");
 	});
 	
@@ -108,9 +83,9 @@ $(function(){
 	    readOnly: false // false if this command should not apply in readOnly mode
 	}); 
 
-	var form=$(this).closest("form");
-	var ta_name=$(this).data("ta_name");
-	var ta_id=$(this).data("ta_id");
+	var form=jq_object.closest("form");
+	var ta_name=jq_object.data("ta_name");
+	var ta_id=jq_object.data("ta_id");
 
 	form.submit( function(event){
 	    var text=editor.getSession().toString();
@@ -121,13 +96,11 @@ $(function(){
 	    $(this).append(ta_html);
 	    return true;
 	});
+    };
 
-    });
-
-    $(".santa_clara_text_editor_button_simple").click(function(event){
-	event.preventDefault();
-	var tag=$(this).data("tag");
-	var parent=$(this).parent();
+    var action_santa_clara_text_editor_button_simple=function(jq_object,event){
+	var tag=jq_object.data("tag");
+	var parent=jq_object.parent();
 	var santa_clara_text_editor_id=parent.data("santa_clara_text_editor_id");
 	var editor=EDITOR_DICT[santa_clara_text_editor_id];
 
@@ -143,23 +116,20 @@ $(function(){
 
 	editor.moveCursorTo(range.end.row,range.end.column+5+2*tag.length,true);
 	editor.focus();
+    };
 
-    });
-
-    $(".santa_clara_text_editor_button_single").click(function(event){
-	event.preventDefault();
-	var tag=$(this).data("tag");
-	var parent=$(this).parent();
+    var action_santa_clara_text_editor_button_single=function(jq_object,event){
+	var tag=jq_object.data("tag");
+	var parent=jq_object.parent();
 	var santa_clara_text_editor_id=parent.data("santa_clara_text_editor_id");
 	var editor=EDITOR_DICT[santa_clara_text_editor_id];
 	editor.insert("["+tag+"/]");
 	editor.focus();
-    });
+    };
     
-    $(".santa_clara_text_editor_button_function").click(function(event){
-	event.preventDefault();
-	var tag=$(this).data("tag");
-	var parent=$(this).parent();
+    var action_santa_clara_text_editor_button_function=function(jq_object,event){
+	var tag=jq_object.data("tag");
+	var parent=jq_object.parent();
 	var santa_clara_text_editor_id=parent.data("santa_clara_text_editor_id");
 	var editor=EDITOR_DICT[santa_clara_text_editor_id];
 	switch (tag) {
@@ -170,8 +140,65 @@ $(function(){
 	    editor.toLowerCase();
 	    break;
 	}
+    };
+
+    /**/
+
+    $(".santa_clara_text_editor").each(function(){
+	set_santa_clara_text_editor($(this));
+    });
+
+    $(".santa_clara_text_editor_button_simple").click(function(event){
+	event.preventDefault();
+	action_santa_clara_text_editor_button_simple($(this),event);
+    });
+
+    $(".santa_clara_text_editor_button_single").click(function(event){
+	event.preventDefault();
+	action_santa_clara_text_editor_button_single($(this),event);
     });
     
+    $(".santa_clara_text_editor_button_function").click(function(event){
+	event.preventDefault();
+	action_santa_clara_text_editor_button_function($(this),event);
+    });
+
+    /**/
+
+    var mutationHandler = function (mutationRecords) {
+	mutationRecords.forEach ( function (mutation) {
+	    if (mutation.type!="childList") return;
+	    if (mutation.addedNodes.length==0) return;
+
+	    $(mutation.addedNodes).each(function(){
+
+		$(this).find(".santa_clara_text_editor").each(function(){
+		    set_santa_clara_text_editor($(this));
+		});
+
+		$(this).find(".santa_clara_text_editor_button_simple").click(function(event){
+		    event.preventDefault();
+		    action_santa_clara_text_editor_button_simple($(this),event);
+		});
+		
+		$(this).find(".santa_clara_text_editor_button_single").click(function(event){
+		    event.preventDefault();
+		    action_santa_clara_text_editor_button_single($(this),event);
+		});
+		
+		$(this).find(".santa_clara_text_editor_button_function").click(function(event){
+		    event.preventDefault();
+		    action_santa_clara_text_editor_button_function($(this),event);
+		});
+
+	    });
+
+	});
+    };
+
+    var MutationObserver    = window.MutationObserver || window.WebKitMutationObserver;
+    var myObserver          = new MutationObserver (mutationHandler);
+    var obsConfig           = { childList: true, characterData: true, attributes: true, subtree: true };
     
     $("form").each( function () {
 	myObserver.observe (this, obsConfig);
