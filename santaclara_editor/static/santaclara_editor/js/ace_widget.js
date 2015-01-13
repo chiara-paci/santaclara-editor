@@ -20,7 +20,7 @@ $(function(){
 
 	editor.on("change",function(event){
 	    console.log(jq_editor_box);
-	    jq_editor_box.addClass("modified");
+	    jq_editor_box.addClass("santa_clara_text_editor_box_modified");
 	});
 	
 	editor.commands.addCommand({
