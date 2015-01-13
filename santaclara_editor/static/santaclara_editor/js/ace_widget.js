@@ -31,12 +31,12 @@ $(function(){
 	console.log($(this));
 	var ta_id=$(this).data("ta_id");
 	var name=$(this).data("ta_name");
-	var text_editor_id=$(this).attr("id");
+	var santa_clara_text_editor_id=$(this).attr("id");
 
-	var editor=ace.edit(text_editor_id);
+	var editor=ace.edit(santa_clara_text_editor_id);
 	var jq_editor_box=$(this).parent();
 
-	EDITOR_DICT[text_editor_id]=editor;
+	EDITOR_DICT[santa_clara_text_editor_id]=editor;
 
 	editor.setTheme("ace/theme/eclipse");
 	editor.getSession().setMode("ace/mode/plain_text");
@@ -124,12 +124,12 @@ $(function(){
 
     });
 
-    $(".text_editor_button_simple").click(function(event){
+    $(".santa_clara_text_editor_button_simple").click(function(event){
 	event.preventDefault();
 	var tag=$(this).data("tag");
 	var parent=$(this).parent();
-	var text_editor_id=parent.data("text_editor_id");
-	var editor=EDITOR_DICT[text_editor_id];
+	var santa_clara_text_editor_id=parent.data("santa_clara_text_editor_id");
+	var editor=EDITOR_DICT[santa_clara_text_editor_id];
 
 	var range=editor.getSelectionRange();
 
@@ -146,22 +146,22 @@ $(function(){
 
     });
 
-    $(".text_editor_button_single").click(function(event){
+    $(".santa_clara_text_editor_button_single").click(function(event){
 	event.preventDefault();
 	var tag=$(this).data("tag");
 	var parent=$(this).parent();
-	var text_editor_id=parent.data("text_editor_id");
-	var editor=EDITOR_DICT[text_editor_id];
+	var santa_clara_text_editor_id=parent.data("santa_clara_text_editor_id");
+	var editor=EDITOR_DICT[santa_clara_text_editor_id];
 	editor.insert("["+tag+"/]");
 	editor.focus();
     });
     
-    $(".text_editor_button_function").click(function(event){
+    $(".santa_clara_text_editor_button_function").click(function(event){
 	event.preventDefault();
 	var tag=$(this).data("tag");
 	var parent=$(this).parent();
-	var text_editor_id=parent.data("text_editor_id");
-	var editor=EDITOR_DICT[text_editor_id];
+	var santa_clara_text_editor_id=parent.data("santa_clara_text_editor_id");
+	var editor=EDITOR_DICT[santa_clara_text_editor_id];
 	switch (tag) {
 	case "action_upper": 
 	    editor.toUpperCase();
