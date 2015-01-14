@@ -139,6 +139,15 @@ $(function(){
 	case "action_lower": 
 	    editor.toLowerCase();
 	    break;
+	case "action_bracket":
+	    var range=editor.getSelectionRange();
+	    editor.clearSelection();
+	    editor.moveCursorTo(range.end.row,range.end.column,true);
+	    editor.insert("]]");
+	    editor.moveCursorTo(range.start.row,range.start.column,true);
+	    editor.insert("[[");
+	    editor.moveCursorTo(range.end.row,range.end.column+4,true);
+	    editor.focus();
 	}
     };
 

@@ -172,6 +172,8 @@ class SantaClaraAceWidget(forms.Textarea):
         html+=u'<a href="" class="santa_clara_text_editor_button_simple" data-tag="sc">'
         html+=u'  <span class="editor-button smallcaps" style="padding-left:.2em;padding-right:.2em;">SC</span>'
         html+=u'  <span class="tooltip">smallcaps</span></a>'
+        html+=u'<a href="" class="santa_clara_text_editor_button_function" data-tag="action_bracket">'
+        html+=u'  []<span class="tooltip">add bracket</span></a>'
         
         html+=u'<span class="hspace" style="padding-left:1em;"></span>'
         
