@@ -107,6 +107,8 @@ class SantaClaraLang(object):
         S=B.format["html"](autoescape)
         S=S.strip()
         print S
+        S=S.replace("&amp;#91;","[")
+        S=S.replace("&amp;#93;","]")
         S=S.replace("&#91;","[")
         S=S.replace("&#93;","]")
         return(mark_safe(S))
