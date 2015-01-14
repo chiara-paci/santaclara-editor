@@ -106,8 +106,9 @@ class SantaClaraLang(object):
         B=self.mk_base(value,ind=ind)
         S=B.format["html"](autoescape)
         S=S.strip()
-        S=S.replace("&#93;","]")
+        print S
         S=S.replace("&#91;","[")
+        S=S.replace("&#93;","]")
         return(mark_safe(S))
 
     def filter_pdf(self,value):
