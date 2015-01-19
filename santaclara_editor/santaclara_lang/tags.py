@@ -245,6 +245,7 @@ class UrlTag(Tag):
 
     def set_args(self,args):
         Tag.set_args(self,args)
+        print self.args
         if not self.args.has_key("url"):
             if len(self.args)>=1:
                 self.args["url"]=self.args[0]
