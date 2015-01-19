@@ -45,7 +45,7 @@ class SantaClaraLang(object):
         for n in range(0,self.hdeep):
             self.tags["h"+str(n+1)].reset()
 
-        v=value.replace(r'//','&#47;').replace("[[","&#91;").replace("]]","&#93;")
+        v=value.replace(r'//','&#47;&#47;').replace("[[","&#91;").replace("]]","&#93;")
         t=self.tokenizer.split(v)
 
         if not internal and self.tags.has_key("img"):
@@ -108,8 +108,10 @@ class SantaClaraLang(object):
         S=S.strip()
         S=S.replace("&amp;#91;","[")
         S=S.replace("&amp;#93;","]")
+        S=S.replace("&amp;#47;","/")
         S=S.replace("&#91;","[")
         S=S.replace("&#93;","]")
+        S=S.replace("&#47;","/")
         return(mark_safe(S))
 
     def filter_pdf(self,value):
