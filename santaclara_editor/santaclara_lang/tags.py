@@ -256,6 +256,7 @@ class UrlTag(Tag):
         S='<a href="'+self.args["url"]+'">'
         S+=Tag.output(self,autoescape,outtype)
         S+="</a>"
+        print S
         return(S)
 
 
