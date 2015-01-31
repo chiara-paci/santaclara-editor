@@ -24,6 +24,7 @@ class mk_h_tag(object):
         #if self.next: self.next.reset()
         i=self.level+int(self.parent.ind)
         tid="h"+str(i)
+        print "F",tid,self.the
         return(HTag(lang,padre,tid,self.get_the()))
 
 class mk_format_tag(object):
