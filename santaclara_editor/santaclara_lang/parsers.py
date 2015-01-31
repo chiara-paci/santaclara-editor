@@ -41,17 +41,21 @@ class SantaClaraLang(object):
     def add_tag(self,tag,obj):
         self.tags[tag]=obj
 
+    def reset_counters(self):
+        for n in range(0,self.hdeep):
+            self.tags["h"+str(n+1)].reset()
+        if self.tags.has_key("img"):
+            self.tags["img"].reset()
+
     def mk_base(self,value,ind=0,internal=False):
         #t=map(lambda x: x[0],self.tokenizer.findall(value))
         print "B"
-        # for n in range(0,self.hdeep):
-        #     self.tags["h"+str(n+1)].reset()
+        if not internal:
+            self.reset_counters()
 
         v=value.replace(r'//','&#47;&#47;').replace("[[","&#91;").replace("]]","&#93;")
         t=self.tokenizer.split(v)
 
-        if not internal and self.tags.has_key("img"):
-            self.tags["img"].reset()
         B=Base(self)
         current=B
         self.ind=ind
