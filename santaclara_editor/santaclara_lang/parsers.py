@@ -43,6 +43,7 @@ class SantaClaraLang(object):
 
     def mk_base(self,value,ind=0,internal=False):
         #t=map(lambda x: x[0],self.tokenizer.findall(value))
+        print "B"
         for n in range(0,self.hdeep):
             self.tags["h"+str(n+1)].reset()
 
