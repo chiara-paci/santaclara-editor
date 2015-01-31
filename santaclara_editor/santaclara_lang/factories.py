@@ -17,7 +17,9 @@ class mk_h_tag(object):
         the+=str(self.the)
         return the
 
-    def reset(self): self.the=0
+    def reset(self): 
+        print "R"
+        self.the=0
 
     def __call__(self,lang,padre):
         self.the+=1
