@@ -23,8 +23,9 @@ class SantaClaraLang(object):
         #regexp=r'('+tag+'|'+txt+'|'+newline+')'
         self.tokenizer=re.compile(regexp)
         self.re_newline=re.compile(r'^ *[\r\n]+$')
-        self.ind=0
         self.tags=tags
+
+        self.ind=0
         self.hdeep=hdeep
         if hdeep>=0:
             htags=[]

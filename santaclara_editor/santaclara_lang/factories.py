@@ -21,11 +21,10 @@ class mk_h_tag(object):
 
     def __call__(self,lang,padre):
         self.the+=1
-        if self.next: self.next.reset()
+        #if self.next: self.next.reset()
         i=self.level+int(self.parent.ind)
         tid="h"+str(i)
         return(HTag(lang,padre,tid,self.get_the()))
-
 
 class mk_format_tag(object):
     def __init__(self,tid):
