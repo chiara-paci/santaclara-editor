@@ -368,10 +368,9 @@ class CiteTag(Tag):
                 self.args["label"]="["+self.args["ref"]+"]"
 
         if self.args.has_key("label"):
-            self.args["label"]="["+self.args["label"]
+            self.args["label"]=self.args["label"]
             if self.args["page"]:
                 self.args["label"]+=", "+self.args["page"]
-            self.args["label"]+="]"
         else:
             if self.args["page"]:
                 self.args["label"]="["+self.args["page"]+"]"
