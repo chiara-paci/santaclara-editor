@@ -169,7 +169,7 @@ class SantaClaraTextEditorButtonHtmlTag(SantaClaraTextEditorButton):
 class SantaClaraTextEditorButtonSpanClass(SantaClaraTextEditorButton):
     def __init__(self,hclass,tag,tooltip,span_class,label):
         self.tag=tag
-        self.rendering+='<span class="editor-button '+span_class'" style="padding-left:.2em;padding-right:.2em;">'
+        self.rendering+='<span class="editor-button '+span_class+'" style="padding-left:.2em;padding-right:.2em;">'
         self.rendering+=label
         self.rendering+='</span>'
         self.tooltip=tooltip
