@@ -2,7 +2,6 @@ $(function(){
     var EDITOR_DICT = {};
 
     var set_santa_clara_text_editor = function(jq_object){
-	console.log(jq_object);
 	var ta_id=jq_object.data("ta_id");
 	var name=jq_object.data("ta_name");
 	var santa_clara_text_editor_id=jq_object.attr("id");
@@ -19,7 +18,6 @@ $(function(){
 	editor.setShowPrintMargin(false);
 
 	editor.on("change",function(event){
-	    console.log(jq_editor_box);
 	    jq_editor_box.addClass("santa_clara_text_editor_box_modified");
 	});
 	
@@ -180,7 +178,7 @@ $(function(){
 	    if (mutation.addedNodes.length==0) return;
 
 	    $(mutation.addedNodes).each(function(){
-		console.log($(this));
+		console.log("QUI",$(this));
 
 		$(this).find(".santa_clara_text_editor").each(function(){
 		    set_santa_clara_text_editor($(this));
