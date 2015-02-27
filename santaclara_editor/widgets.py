@@ -114,6 +114,29 @@ class SantaClaraJQueryUIWidget(forms.Textarea):
         
         return mark_safe(H)
     
+
+# Valore che esiste:
+#
+# <label class="required" for="id_santaclara_base-version-content_type-object_id-0-text">LABEL:</label>
+# <textarea class="vLargeTextField" cols="40" id="id_santaclara_base-version-content_type-object_id-0-text" 
+#    name="santaclara_base-version-content_type-object_id-0-text" rows="10">
+# TESTO</textarea>
+
+
+
+# Valore nuovo (quando ne esiste uno):
+#
+# <label class="required" for="id_santaclara_base-version-content_type-object_id-1-text">Text:</label>
+# <textarea class="vLargeTextField" cols="40" id="id_santaclara_base-version-content_type-object_id-1-text" 
+#    name="santaclara_base-version-content_type-object_id-1-text" rows="10"></textarea>
+
+# Valore nuovo (quando non ne esiste uno):
+#                
+# <label class="required" for="id_santaclara_base-version-content_type-object_id-0-text">Text:</label>
+# <textarea class="vLargeTextField" cols="40" id="id_santaclara_base-version-content_type-object_id-0-text" 
+#     name="santaclara_base-version-content_type-object_id-0-text" rows="10"></textarea>
+
+
 class SantaClaraAceWidget(forms.Textarea):
     class Media:
         css = {
@@ -130,6 +153,11 @@ class SantaClaraAceWidget(forms.Textarea):
     def render(self, name, value, attrs=None):
         html = super(SantaClaraAceWidget, self).render(name, value, attrs=attrs)
         ta_id=attrs["id"]
+
+        print "ta_id:",ta_id
+        print "name:",name
+        print "value:",value
+        print "attrs:",attrs
 
         html=u'<div id="santa_clara_text_editor_box_'+ta_id+'" class="santa_clara_text_editor_box"'
         html+=u' data-ta_id="'+ta_id+'"'
