@@ -180,7 +180,11 @@ $(function(){
 	    $(mutation.addedNodes).each(function(){
 		
 		$(this).find(".santa_clara_text_editor_box").each(function(){
-		    console.log("QUI",$(this));
+		    var box_id=$(this).attr("id");
+		    var ta_id_temp=$(this).data("ta_id");
+		    var ta_id_real=box_id.replace(/^santa_clara_text_editor_box_/,'');
+		    console.log("ta_id_real:",ta_id_real);
+		    console.log("ta_id_temp:",ta_id_temp);
 		});
 
 		$(this).find(".santa_clara_text_editor").each(function(){
