@@ -185,6 +185,10 @@ $(function(){
 		    var ta_id_real=box_id.replace(/^santa_clara_text_editor_box_/,'');
 		    console.log("ta_id_real:",ta_id_real);
 		    console.log("ta_id_temp:",ta_id_temp);
+		    var rexp=RegExp('^'+ta_id_temp.replace('__prefix__','(.*)')+'$');
+		    console.log("regexp:",rexp);
+		    var prefix=ta_id_real.replace(rexp,'$1');
+		    console.log("prefix:",prefix);
 		});
 
 		$(this).find(".santa_clara_text_editor").each(function(){
