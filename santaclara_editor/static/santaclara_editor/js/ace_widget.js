@@ -182,9 +182,11 @@ $(function(){
 		$(this).find(".santa_clara_text_editor_box").each(function(){
 		    var box_id=$(this).attr("id");
 		    var ta_id_temp=$(this).data("ta_id");
+		    var ta_name_temp=$(this).data("ta_name");
 		    var ta_id_real=box_id.replace(/^santa_clara_text_editor_box_/,'');
 		    console.log("ta_id_real:",ta_id_real);
 		    console.log("ta_id_temp:",ta_id_temp);
+		    console.log("ta_name_temp:",ta_name_temp);
 		    var rexp=RegExp('^'+ta_id_temp.replace('__prefix__','(.*)')+'$');
 		    console.log("regexp:",rexp);
 		    var prefix=ta_id_real.replace(rexp,'$1');
