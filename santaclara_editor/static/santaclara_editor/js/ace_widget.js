@@ -23,7 +23,7 @@ $(function(){
 	
 	editor.commands.addCommand({
 	    name: 'Move to cursor to  the start of the current line.',
-	    bindKey: {win: 'Ctrl-A',  mac: 'Command-A'},
+	    bindKey: {win: 'Ctrl-B',  mac: 'Command-B'},
 	    exec: function(editor) {
 		editor.navigateLineStart();
 		editor.focus();
