@@ -170,7 +170,15 @@ $(function(){
 	action_santa_clara_text_editor_button_function($(this),event);
     });
 
+
+
     /**/
+
+    var replace_prefix_in_data = function (object,data_key,new_prefix) {
+	var old_val=object.data(data_key);
+	var new_val=old_val.replace('__prefix__',new_prefix);
+	object.data(data_key,new_val);
+    };
 
     var mutationHandler = function (mutationRecords) {
 	mutationRecords.forEach ( function (mutation) {
@@ -184,13 +192,18 @@ $(function(){
 		    var ta_id_temp=$(this).data("ta_id");
 		    var ta_name_temp=$(this).data("ta_name");
 		    var ta_id_real=box_id.replace(/^santa_clara_text_editor_box_/,'');
-		    console.log("ta_id_real:",ta_id_real);
-		    console.log("ta_id_temp:",ta_id_temp);
-		    console.log("ta_name_temp:",ta_name_temp);
 		    var rexp=RegExp('^'+ta_id_temp.replace('__prefix__','(.*)')+'$');
-		    console.log("regexp:",rexp);
-		    var prefix=ta_id_real.replace(rexp,'$1');
-		    console.log("prefix:",prefix);
+		    var prefix_real=ta_id_real.replace(rexp,'$1');
+		    replace_prefix_in_data($(this),"ta_id",prefix_real);
+		    replace_prefix_in_data($(this),"ta_name",prefix_real);
+		    $(this).find(".santa_clara_text_editor_button_bar").each(function(){
+			replace_prefix_in_data($(this),"santa_clara_text_editor_box_id",prefix_real);
+			replace_prefix_in_data($(this),"santa_clara_text_editor_id",prefix_real);
+		    });
+		    $(this).find(".santa_clara_text_editor").each(function(){
+			replace_prefix_in_data($(this),"ta_id",prefix_real);
+			replace_prefix_in_data($(this),"ta_name",prefix_real);
+		    });
 		});
 
 		$(this).find(".santa_clara_text_editor").each(function(){

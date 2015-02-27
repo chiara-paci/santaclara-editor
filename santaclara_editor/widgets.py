@@ -224,8 +224,6 @@ class SantaClaraAceWidget(forms.Textarea):
         print "value:",value
         print "attrs:",attrs
 
-        if not value: value=""
-
         html=u'<div id="santa_clara_text_editor_box_'+ta_id+'" class="santa_clara_text_editor_box"'
         html+=u'   data-ta_id="'+ta_id+'"'
         html+=u'   data-ta_name="'+name+'">'
@@ -239,7 +237,10 @@ class SantaClaraAceWidget(forms.Textarea):
         html+=u'<div id="santa_clara_text_editor_'+ta_id+'" class="santa_clara_text_editor"'
         html+=u'   data-ta_id="'+ta_id+'"'
         html+=u'   data-ta_name="'+name+'">'
-        html+=unicode(value)
+        if value:
+            html+=unicode(value)
+        else:
+            html+=u'== delete me =='
         html+=u'</div>'
 
         html+=u'</div><!-- text_editor_box -->'
