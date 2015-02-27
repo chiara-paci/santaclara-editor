@@ -178,7 +178,10 @@ $(function(){
 	    if (mutation.addedNodes.length==0) return;
 
 	    $(mutation.addedNodes).each(function(){
-		console.log("QUI",$(this));
+		
+		$(this).find(".santa_clara_text_editor_box").each(function(){
+		    console.log("QUI",$(this));
+		});
 
 		$(this).find(".santa_clara_text_editor").each(function(){
 		    set_santa_clara_text_editor($(this));
