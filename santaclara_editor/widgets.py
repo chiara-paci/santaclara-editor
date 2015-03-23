@@ -234,7 +234,7 @@ class SantaClaraAceWidget(forms.Textarea):
         if value:
             html+=unicode(value)
         else:
-            html+=u'== delete me =='
+            html+=u''
         html+=u'</div>'
 
         html+=u'</div><!-- text_editor_box -->'
