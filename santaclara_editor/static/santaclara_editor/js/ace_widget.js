@@ -92,6 +92,7 @@ $(function(){
 	    ta_html+=text;
 	    ta_html+="</textarea>";
 	    $(this).append(ta_html);
+	    $(this).find('#'+ta_id).hide();
 	    return true;
 	});
     };
