@@ -9,7 +9,7 @@ def autodiscover():
 
     import copy
     from django.conf import settings
-    from django.utils.importlib import import_module
+    from importlib import import_module
     from django.utils.module_loading import module_has_submodule
 
     for app in settings.INSTALLED_APPS:
@@ -20,7 +20,7 @@ def autodiscover():
             import_module('%s.santaclara_languages' % app)
         except:
             # Decide whether to bubble up this error. If the app just
-            # doesn't have an admin module, we can ignore the error
+            # doesn't have a santaclara_languages module, we can ignore the error
             # attempting to import it, otherwise we want it to bubble up.
             if module_has_submodule(mod, 'santaclara_languages'):
                 santaclara_editor.languages.language_register=language_register_pre
